@@ -1,53 +1,58 @@
-import * as React from "react";
-import type { HeadFC } from "gatsby";
-import { StaticQuery, graphql } from "gatsby";
+// this is download all
 
+import React, { useRef, useEffect, useState } from "react";
+import { StaticQuery, graphql } from "gatsby";
+import { Canvg } from 'canvg';
 import { jsPDF } from "jspdf";
 
-/* function Console(props) {
-  console.log(props.data);
-  return null;
-} */
+const MyCanvas = (props = {}) => {
+  const canvas1 = useRef(null);
+  const [count, setCount] = useState('hey');
 
-function PDF(props) {
-  const doc = new jsPDF();
+  useEffect(() => {
+    const context = canvas1.current.getContext("2d");
+    const v = Canvg.fromString(context, props.svv);
+    v.start(); // this needs documenting because its doing a lot
 
-  doc.text(props.name, 10, 10);
+    const dataURL = canvas1.current.toDataURL();
+    setCount(dataURL);
 
-  // by running this over the loop this downloads everything everytime
-  // which is not really what I want and build doesnt do this as this has to run through the browser
-  // all though having a download all page is the point and then just build singles
-  // doc.save(props.name);
+    const doc = new jsPDF();
+    doc.text('now', 10, 10);
+    doc.addImage(dataURL, 'png', 10, 30, 150, 76); // these 
+    doc.save('again');
+  });
 
-  return null;
-}
-
-const IndexPage = () => {
   return (
-    <main>
-      Hey
-      <StaticQuery
-        query={query}
-        render={data => (
-          <>
-            <ul>
-              {data.allStrapiProperty?.edges?.map(property => (
-                <li key={property.node.id}>
-                  <h3>{property.node.address}</h3>
-                  <PDF name={property.node.address} />
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-      />
-    </main>
+    <>
+      {/* {count} */}
+      <canvas ref={canvas1} />{/* this is built but doesnt show */}
+      <img src={count} alt="the svg but its an image" />
+    </>
+  );
+};
+
+const DownloadAllPage = () => {
+  return (
+    <StaticQuery
+      query={query}
+      render={data => (
+        <ul>
+          {data.allStrapiProperty?.edges?.map(property => (
+            <li key={property.node.id}>
+              <h3>{property.node.address}</h3>
+              <MyCanvas svv={property.node.svg} />
+              <p>{property.node.svg}</p>
+              {/* <PDF name={property.node.address} /> */}
+            </li>
+          ))}
+        </ul>
+      )}
+    />
   )
 }
 
-export default IndexPage
-
-export const Head: HeadFC = () => <title>Home Page</title>
+export default DownloadAllPage
 
 const query = graphql`
 query DownloadAllQuery {

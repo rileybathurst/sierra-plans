@@ -1,7 +1,5 @@
-# Each PDF
+# Sierra Plans
 
-Starting with a version of Gastby.
-import the data from Strapi.
-each piece can then be download from a PDF instead of a webpage.
-
-This kinda wont be the last piece of the puzzle as creating all PDFs with node would be really useful.
+Create PDF of plans that can be added to a strapi CMS online.
+The plans are built in SVG for speed and compatability
+The building through the web was for updateablity
