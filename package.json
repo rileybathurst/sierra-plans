@@ -18,17 +18,19 @@
   "dependencies": {
     "canvg": "^4.0.1",
     "gatsby": "^4.22.0",
-    "gatsby-plugin-image": "^2.22.0",
+    "gatsby-plugin-image": "^2.23.0",
     "gatsby-plugin-sass": "^5.23.0",
-    "gatsby-plugin-sharp": "^4.22.0",
-    "gatsby-source-filesystem": "^4.22.0",
+    "gatsby-plugin-sharp": "^4.23.0",
+    "gatsby-source-filesystem": "^4.23.0",
     "gatsby-source-strapi": "^2.0.0",
     "gatsby-transformer-remark": "^5.22.0",
-    "gatsby-transformer-sharp": "^4.22.0",
+    "gatsby-transformer-sharp": "^4.23.0",
     "jspdf": "^2.5.1",
     "pdfjs-dist": "^2.16.105",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-markdown": "^8.0.3",
+    "remark-gfm": "^3.0.1",
     "sass": "^1.54.9"
   },
   "devDependencies": {

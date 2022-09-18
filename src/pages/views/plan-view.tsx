@@ -1,7 +1,33 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image"
+
 import { Canvg } from 'canvg';
 import { jsPDF } from "jspdf";
+
+import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm'
+
+function Markdown(props) {
+  // console.log(props.notes);
+  if (props.notes) {
+    return <ReactMarkdown
+      children={props.notes}
+      remarkPlugins={[remarkGfm]}
+    />;
+  } else {
+    return null;
+  }
+}
+
+// I did this as a jpeg so it could go into the PDF
+export function Logo() {
+  return <StaticImage
+    src="../../images/sierra_lighting-full_logo-black.jpg"
+    alt="Sierra Lighting Logo"
+    className="plan__logo"
+  />
+}
 
 // build a pdf from an svg that comes from strapi
 // except jsPDF cant use the svg directly it needs to convert it to a canvas
@@ -66,15 +92,43 @@ const PDFBuilder = (props = {}) => {
 
     // imageData, format, x, y, width, height
     doc.addImage(dataURL, 'png', 0.5, 2, 7.5, 8);
-    doc.save(props.slug); // ! currently off so i can test
+    // doc.save(props.slug); // ! creates a file which is turned off for testing
   });
 
   return (
     <>
+      <h2>{props.name}</h2>
+      <h3>{props.address},&nbsp;{props.area}</h3>
+
+      <Markdown notes={props.notes} />
+
       {/* we need a canvas built but we dont actually show it */}
       <canvas ref={canvas} width="2550" height="2550" />
       {/* show the image we are taking to the pdf */}
       <img src={count} alt="the svg but its an image" className="measure" />
+
+      <hr />
+
+      <section>
+        <p>Who built these plans</p>
+        <ul>
+          {props.teams.map((team, index) => (
+            <li key={index}>{team.name}</li>
+          ))}
+        </ul>
+        <div className="dates">
+          <p>Created at: {props.createdAt}</p>
+          <p>Updated at: {props.updatedAt}</p>
+        </div>
+      </section>
+
+      <div className="plan__footer">
+        <Logo />
+        <p>info@sierra.lighting<br />
+          Nevada Number: (775) 525-1898<br />
+          California Number: (530) 414-9899
+        </p>
+      </div>
     </>
   );
 };
@@ -88,8 +142,17 @@ const PlanView = ({ plan }) => {
         </h1>
       </header>
       <main>
-        <h2>{plan.slug}</h2>
-        <PDFBuilder svv={plan.svg} slug={plan.slug} />
+        <PDFBuilder
+          svv={plan.svg}
+          slug={plan.slug}
+          name={plan.name}
+          address={plan.address}
+          area={plan.area.name}
+          teams={plan.teams}
+          notes={plan.notes.data.notes}
+          createdAt={plan.createdAt}
+          updatedAt={plan.updatedAt}
+        />
       </main>
     </>
   );

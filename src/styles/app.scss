@@ -1,5 +1,20 @@
-.test {
-  background: green;
+:root {
+  --honey: 35;
+  --measure: 40rem;
+}
+
+body {
+  background-color: hsl(var(--honey), 100%, 99%);
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+main {
+  background-color: white;
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding: 1rem;
 }
 
 canvas {
@@ -9,4 +24,33 @@ canvas {
 
 .measure {
   max-width: 40rem;
+}
+
+.plan__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  border-block-start: 2px solid grey;
+
+  > * {
+    flex: 1 1 20rem;
+  }
+
+  /*   > :first-child {
+    border-inline-end: 2px solid grey;
+  } */
+}
+
+.plan__logo {
+  max-width: 10rem;
+  // margin-inline: auto;
+  mix-blend-mode: multiply;
+}
+
+.dates {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
 }

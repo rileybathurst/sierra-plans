@@ -8,7 +8,7 @@ const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
-    'plans',
+    'plan',
   ],
   singleTypes: [],
 };
@@ -29,7 +29,10 @@ const config: GatsbyConfig = {
   },
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
-  `gatsby-plugin-sass`
+  `gatsby-plugin-sass`,
+  `gatsby-plugin-image`,
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
 ],
 }
 

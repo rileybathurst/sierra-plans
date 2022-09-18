@@ -6,8 +6,23 @@ export const query = graphql`
   query PlanQuery($slug: String!) {
     strapiPlan(slug: { eq: $slug }) {
       id
+      name
+      address
+      area {
+        name
+      }
       slug
       svg
+      notes {
+        data {
+          notes
+        }
+      }
+      teams {
+        name
+      }
+      createdAt(formatString: "MMMM YYYY")
+      updatedAt(formatString: "MMMM YYYY")
     }
   }
 `
