@@ -14,9 +14,9 @@ const IndexPage = () => {
           query={query}
           render={data => (
             <ul>
-              {data.allStrapiProperty?.edges?.map(property => (
-                <li key={property.node.id}>
-                  <p><Link to={`/property/${property.node.slug}`}>{property.node.address}</Link></p>
+              {data.allStrapiPlan?.edges?.map(plan => (
+                <li key={plan.node.id}>
+                  <p><Link to={`/plan/${plan.node.slug}`}>{plan.node.address}</Link></p>
                 </li>
               ))}
             </ul>
@@ -38,7 +38,7 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 const query = graphql`
 query IndexQuery {
-  allStrapiProperty {
+  allStrapiPlan {
     edges {
       node {
         id

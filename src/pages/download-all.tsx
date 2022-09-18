@@ -38,12 +38,12 @@ const DownloadAllPage = () => {
       query={query}
       render={data => (
         <ul>
-          {data.allStrapiProperty?.edges?.map(property => (
-            <li key={property.node.id}>
-              <h3>{property.node.address}</h3>
-              <MyCanvas svv={property.node.svg} />
-              <p>{property.node.svg}</p>
-              {/* <PDF name={property.node.address} /> */}
+          {data.allStrapiPlan?.edges?.map(plan => (
+            <li key={plan.node.id}>
+              <h3>{plan.node.address}</h3>
+              <MyCanvas svv={plan.node.svg} />
+              <p>{plan.node.svg}</p>
+              {/* <PDF name={plan.node.address} /> */}
             </li>
           ))}
         </ul>
@@ -56,7 +56,7 @@ export default DownloadAllPage
 
 const query = graphql`
 query DownloadAllQuery {
-  allStrapiProperty {
+  allStrapiPlan {
     edges {
       node {
         id

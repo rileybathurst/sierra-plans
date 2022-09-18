@@ -8,16 +8,15 @@ const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
-    'property',
-    'properties' // I dont think this is there i was just troubleshooting
+    'plans',
   ],
   singleTypes: [],
 };
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `eachPDF`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Sierra Plans`,
+    siteUrl: `https://www.sierra.lighting`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
