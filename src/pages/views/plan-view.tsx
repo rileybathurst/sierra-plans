@@ -23,7 +23,7 @@ function Markdown(props) {
 // I did this as a jpeg so it could go into the PDF
 export function Logo() {
   return <StaticImage
-    src="../../images/sierra_lighting-full_logo-black.jpg"
+    src="../../images/sierra_lighting-full_logo-black-fs8.png"
     alt="Sierra Lighting Logo"
     className="plan__logo"
   />
@@ -48,33 +48,8 @@ const PDFBuilder = (props = {}) => {
     // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
     const context = canvas.current.getContext("2d");
 
-    // scale to get better resolution
-    // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/scale
-    // context.scale(1, 1);
-    // this keeps rerendering and expanding each time so it doesnt work
-    // context.scale(1.01, 1.01);
-
-    // Reset current transformation matrix to the identity matrix
-    // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/resetTransform
-    // context.setTransform(1, 0, 0, 1, 0, 0);
-
-    // svg code converted to canvas code
-    // https://canvg.js.org/
-    // const v = Canvg.fromString(context, props.svv); // this needs to be better resolution
-
-    // https://stackoverflow.com/questions/29081286/large-svg-to-png-in-fixed-resolution
-    const v = Canvg.fromString(context, props.svv, {
-      // ignoreDimensions: true, // no idea what this does
-      // scaleWidth: 792, // original for 2410-nehalem-dr
-      // scaleWidth: 1000, // guess and check
-      // scaleWidth: 7000, // guess and check
-      // scaleHeight: 612, // original for 2410-nehalem-dr
-      // scaleHeight: 1000, // guess and check
-      // scaleHeight: 9700, // guess and check
-      // i think this is scaling too late and its going to come out fuzzy
-    });
-    // console.log(v);
-    v.start(); // this needs documenting because its doing a lot
+    const v = Canvg.fromString(context, props.svv);
+    v.start(); // this is drawing the canvas
 
     // base64 encode the canvas image
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
@@ -85,14 +60,58 @@ const PDFBuilder = (props = {}) => {
     // create the pdf
     const doc = new jsPDF('p', 'in', 'letter');
     // text, offset x, offset y
-    doc.text(props.slug, 0.5, 1);
-    // I need to take these as props
-    // if I make all SVG based on the letter size that would be great
-    // add a prop for tall or wide images?
+    doc.text(props.name, 0.5, 1);
+
+    doc.setFontSize(14);
+    let add = `${props.address}, ${props.area}`;
+    doc.text(add, 0.5, 1.5);
+
+    // doc.text(props.notes, 0.5, 2); // needs to be line broken
+
+    doc.setFontSize(12);
+    var splitNote = doc.splitTextToSize(props.notes, 7);
+    doc.text(0.5, 2, splitNote);
+
+    // ? add a prop for tall or wide images?
 
     // imageData, format, x, y, width, height
     doc.addImage(dataURL, 'png', 0.5, 2, 7.5, 8);
-    // doc.save(props.slug); // ! creates a file which is turned off for testing
+
+    // line(x1, y1, x2, y2, style)
+    doc.setLineWidth(0.01);
+    doc.line(0.5, 8, 8, 8);
+
+    if (props.teams.length > 0) {
+      let people = 'Plan by: ';
+
+      props.teams.forEach(team =>
+        people = people.concat(team.name, ' ')
+      );
+
+      doc.text(people, 0.5, 8.5);
+    }
+
+    if (props.createdAt !== props.updatedAt) {
+      let dates = `Created: ${props.createdAt} Updated: ${props.updatedAt}`;
+      doc.text(dates, 0.5, 9);
+    } else {
+      doc.text(`Created: ${props.updatedAt}`, 0.5, 9);
+    }
+
+    doc.line(0.5, 9.1, 8, 9.1);
+
+    let logo = new Image();
+    // logo.src = "../../images/sierra_lighting-full_logo-black-fs8.png";
+    logo.src = "https://sierralighting.s3.us-west-1.amazonaws.com/sierra_lighting-full_logo-black-fs8.png";
+    doc.addImage(logo, 'png', 0.5, 9.2, 1, 0.51);
+
+    doc.text('info@sierra.lighting', 2, 9.4);
+    doc.text('Nevada Number: (775) 525-1898', 2, 9.6);
+    doc.text('California Number: (530) 414-9899', 2, 9.8);
+
+    let filename = `${props.name} ${props.slug} ${props.updatedAt}`;
+
+    doc.save(filename); // ! creates a file which is turned off for testing
   });
 
   return (
@@ -109,6 +128,7 @@ const PDFBuilder = (props = {}) => {
 
       <hr />
 
+      {/* // todo: needs a couple of if statements */}
       <section>
         <p>Who built these plans</p>
         <ul>
