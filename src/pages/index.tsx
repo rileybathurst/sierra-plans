@@ -16,7 +16,7 @@ const IndexPage = () => {
             <ul>
               {data.allStrapiPlan?.edges?.map(plan => (
                 <li key={plan.node.id}>
-                  <p><Link to={`/plan/${plan.node.slug}`}>{plan.node.address}</Link></p>
+                  <p><Link to={`/plan/${plan.node.slug}`}>{plan.node.name} - {plan.node.address}</Link></p>
                 </li>
               ))}
             </ul>
@@ -44,6 +44,7 @@ query IndexQuery {
         id
         address
         slug
+        name
       }
     }
   }

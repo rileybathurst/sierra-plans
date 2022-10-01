@@ -2,10 +2,10 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { StaticQuery, graphql } from "gatsby";
-import { Canvg } from 'canvg';
-import { jsPDF } from "jspdf";
 
-const MyCanvas = (props = {}) => {
+import PDFBuilder from "../components/pdf-builder";
+
+/* const MyCanvas = (props = {}) => {
   const canvas1 = useRef(null);
   const [count, setCount] = useState('hey');
 
@@ -25,12 +25,13 @@ const MyCanvas = (props = {}) => {
 
   return (
     <>
-      {/* {count} */}
-      <canvas ref={canvas1} />{/* this is built but doesnt show */}
+      {count}
+      <canvas ref={canvas1} />
+      this is built but doesnt show
       <img src={count} alt="the svg but its an image" />
     </>
   );
-};
+}; */
 
 const DownloadAllPage = () => {
   return (
@@ -40,10 +41,22 @@ const DownloadAllPage = () => {
         <ul>
           {data.allStrapiPlan?.edges?.map(plan => (
             <li key={plan.node.id}>
-              <h3>{plan.node.address}</h3>
+              {/*               <h3>{plan.node.address}</h3>
               <MyCanvas svv={plan.node.svg} />
-              <p>{plan.node.svg}</p>
+              <p>{plan.node.svg}</p> */}
               {/* <PDF name={plan.node.address} /> */}
+
+              <PDFBuilder
+                svv={plan.node.svg}
+                slug={plan.node.slug}
+                name={plan.node.name}
+                address={plan.node.address}
+                area={plan?.node?.area?.name}
+                teams={plan.node.teams}
+                notes={plan.node?.notes?.data?.notes}
+                createdAt={plan.node.createdAt}
+                updatedAt={plan.node.updatedAt}
+              />
             </li>
           ))}
         </ul>
@@ -62,6 +75,23 @@ query DownloadAllQuery {
         id
         address
         svg
+
+        slug
+        name
+        area {
+          name
+        }
+        teams {
+          name
+        }
+        notes {
+          data {
+            notes
+          }
+        }
+        
+        createdAt
+        updatedAt
       }
     }
   }
