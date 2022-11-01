@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image"
 
 import { Canvg } from 'canvg';
@@ -36,18 +35,17 @@ const PDFBuilder = (props = {}) => {
     // text, offset x, offset y
     doc.text(props.name, 0.5, 1);
 
-    doc.setFontSize(14);
+    doc.setFontSize(12);
     let add = `${props.address}, ${props.area}`;
-    doc.text(add, 0.5, 1.5);
+    doc.text(add, 0.5, 1.25);
 
     // doc.text(props.notes, 0.5, 2); // needs to be line broken
 
-
-    doc.setFontSize(12);
+    doc.setFontSize(9);
 
     if (props.notes) {
       var splitNote = doc.splitTextToSize(props.notes, 7);
-      doc.text(0.5, 2, splitNote);
+      doc.text(splitNote, 0.5, 1.5);
     }
 
     // ? add a prop for tall or wide images?
@@ -57,17 +55,17 @@ const PDFBuilder = (props = {}) => {
 
     // line(x1, y1, x2, y2, style)
     doc.setLineWidth(0.01);
-    doc.line(0.5, 8, 8, 8);
+    // doc.line(0.5, 8, 8, 8);
 
-    if (props.teams.length > 0) {
-      let people = 'Plan by: ';
-
-      props.teams.forEach(team =>
-        people = people.concat(team.name, ' ')
-      );
-
-      doc.text(people, 0.5, 8.5);
-    }
+    /*     if (props.teams.length > 0) {
+          let people = 'Plan by: ';
+    
+          props.teams.forEach(team =>
+            people = people.concat(team.name, ' ')
+          );
+    
+          doc.text(people, 0.5, 8.5);
+        } */
 
     if (props.createdAt !== props.updatedAt) {
       let dates = `Created: ${props.createdAt} Updated: ${props.updatedAt}`;
@@ -83,9 +81,9 @@ const PDFBuilder = (props = {}) => {
     logo.src = "https://sierralighting.s3.us-west-1.amazonaws.com/sierra_lighting-full_logo-black-fs8.png";
     doc.addImage(logo, 'png', 0.5, 9.2, 1, 0.51);
 
-    doc.text('info@sierra.lighting', 2, 9.4);
-    doc.text('Nevada Number: (775) 525-1898', 2, 9.6);
-    doc.text('California Number: (530) 414-9899', 2, 9.8);
+    // doc.text('info@sierra.lighting', 2, 9.4);
+    // doc.text('Nevada Number: (775) 525-1898', 2, 9.6);
+    // doc.text('California Number: (530) 414-9899', 2, 9.8);
 
     let filename = `${props.name} ${props.slug} ${props.updatedAt}`;
 
@@ -108,12 +106,12 @@ const PDFBuilder = (props = {}) => {
 
       {/* // todo: needs a couple of if statements */}
       <section>
-        <p>Who built these plans</p>
+        {/*         <p>Who built these plans</p>
         <ul>
           {props.teams.map((team, index) => (
             <li key={index}>{team.name}</li>
           ))}
-        </ul>
+        </ul> */}
         <div className="dates">
           <p>Created at: {props.createdAt}</p>
           <p>Updated at: {props.updatedAt}</p>

@@ -23,21 +23,19 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             slug
             area {
-              name
+              slug
             }
           }
         }
       }
     }
     `).then(result => {
-    // Create pages for each partner resorts.
-    result.data.allStrapiBrand.edges.forEach(({ node }) => {
+    result.data.allStrapiPlan.edges.forEach(({ node }) => {
       createPage({
-        path: `/area/${node.slug}`,
+        path: `/area/${node?.area?.slug}`,
         component: path.resolve(`src/templates/area.tsx`),
         context: {
-          slug: node.slug,
-          retail: node.retail.series
+          slug: node?.slug
         },
       })
     })
@@ -48,3 +46,8 @@ exports.createPages = ({ actions, graphql }) => {
     getAreas,
   ])
 }
+
+
+/* area {
+  slug
+} */

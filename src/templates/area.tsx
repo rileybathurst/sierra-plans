@@ -1,10 +1,20 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 
+function Console(props) {
+  console.log(props.data);
+  return null;
+}
+
 const AreaView = ({ data }) => {
   return (
     <>
-      {data.area.name}
+      {/* test */}
+      {/* {data.area.slug} */}
+      above<br />
+      {data.slug}<br />
+      <Console data={data} />
+      below<br />
     </>
   );
 };
@@ -18,6 +28,7 @@ export const query = graphql`
     area: strapiArea(slug: {eq: $slug}) {
     id
     name
+    slug
     }
   }
 `;
