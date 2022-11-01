@@ -53,7 +53,7 @@ const DownloadAllPage = () => {
                 address={plan.node.address}
                 area={plan?.node?.area?.name}
                 teams={plan.node.teams}
-                notes={plan.node?.notes?.data?.notes}
+                notes={plan.node?.childStrapiPlanNotesTextnode?.notes}
                 createdAt={plan.node.createdAt}
                 updatedAt={plan.node.updatedAt}
               />
@@ -75,6 +75,9 @@ query DownloadAllQuery {
         id
         address
         svg
+        childStrapiPlanNotesTextnode {
+          notes
+        }
 
         slug
         name
@@ -84,11 +87,7 @@ query DownloadAllQuery {
         teams {
           name
         }
-        notes {
-          data {
-            notes
-          }
-        }
+        
         
         createdAt
         updatedAt

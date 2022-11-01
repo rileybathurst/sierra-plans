@@ -2,6 +2,15 @@ import * as React from "react";
 import { Link, HeadFC } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 
+function Jobber(props) {
+  if (props.jobber) {
+    return (
+      <>{props.jobber} -&nbsp;</>
+    )
+  }
+  else return null;
+}
+
 const IndexPage = () => {
   return (
     <>
@@ -16,7 +25,7 @@ const IndexPage = () => {
             <ul>
               {data.allStrapiPlan?.edges?.map(plan => (
                 <li key={plan.node.id}>
-                  <p><Link to={`/plan/${plan.node.slug}`}>{plan.node.name} - {plan.node.address}</Link></p>
+                  <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
                 </li>
               ))}
             </ul>
@@ -45,6 +54,7 @@ query IndexQuery {
         address
         slug
         name
+        jobber
       }
     }
   }

@@ -23,7 +23,7 @@ const PlanView = ({ plan }) => {
           address={plan.address}
           area={plan.area.name}
           teams={plan.teams}
-          notes={plan?.notes?.data?.notes}
+          notes={plan?.childStrapiPlanNotesTextnode?.notes}
           createdAt={plan.createdAt}
           updatedAt={plan.updatedAt}
         />

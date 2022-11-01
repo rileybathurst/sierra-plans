@@ -13,11 +13,10 @@ export const query = graphql`
       }
       slug
       svg
-      notes {
-        data {
-          notes
-        }
+      childStrapiPlanNotesTextnode {
+        notes
       }
+      
       teams {
         name
       }
