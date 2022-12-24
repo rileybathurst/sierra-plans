@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import AreaView from "../../src/pages/views/area-view"
+import AreaView from "../views/area-view"
 
 export const query = graphql`
   query AreaQuery($slug: String!) {

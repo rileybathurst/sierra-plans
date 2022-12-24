@@ -13,16 +13,22 @@ const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
   )
 });
 
-exports.createPages = ({ actions, graphql }) => {
+// create pages for each area that show all the plans for that area
+// why do I need to come in from this side?
+// try and go by pages/area/{StrapiArea.slug}.tsx
+
+/* exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
+
+ // this kinda feels like im backing into this
 
   const getAreas = makeRequest(graphql, `
     {
-      allStrapiPlans {
+      allStrapiPlan {
         edges {
           node {
             slug
-            area {
+            areas {
               slug
             }
           }
@@ -39,13 +45,13 @@ exports.createPages = ({ actions, graphql }) => {
         },
       })
     })
-  }); // .then(result) */
+  }); // .then(result) 
 
   // Query for blog nodes to use in creating pages.
   return Promise.all([
     getAreas,
   ])
-}
+} */
 
 
 /* area {

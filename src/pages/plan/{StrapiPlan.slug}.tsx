@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import PlanView from "../../src/pages/views/plan-view"
+import PlanView from "../views/plan-view"
 
 export const query = graphql`
   query PlanQuery($slug: String!) {
@@ -8,7 +8,7 @@ export const query = graphql`
       id
       name
       address
-      area {
+      areas {
         name
       }
       slug

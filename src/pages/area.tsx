@@ -293,7 +293,7 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 const query = graphql`
 query AreaQuery {
-  alpine: allStrapiPlan(filter: {area: {slug: {eq: "alpine"}}}) {
+  alpine: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"alpine"}}}}) {
     edges {
       node {
         id
@@ -305,7 +305,7 @@ query AreaQuery {
     }
   }
   
-  carson: allStrapiPlan(filter: {area: {slug: {eq: "carson"}}}) {
+  carson: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"carson"}}}}) {
     edges {
       node {
         id
@@ -317,7 +317,7 @@ query AreaQuery {
     }
   }
   
-  caughlin: allStrapiPlan(filter: {area: {slug: {eq: "caughlin"}}}) {
+  caughlin: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"caughlin"}}}}) {
     edges {
       node {
         id
@@ -329,7 +329,7 @@ query AreaQuery {
     }
   }
 
-  damone: allStrapiPlan(filter: {area: {slug: {eq: "damone"}}}) {
+  damone: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"damone"}}}}) {
     edges {
       node {
         id
@@ -341,7 +341,7 @@ query AreaQuery {
     }
   }
 
-  gelena: allStrapiPlan(filter: {area: {slug: {eq: "gelena"}}}) {
+  gelena: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"gelena"}}}}) {
     edges {
       node {
         id
@@ -353,7 +353,7 @@ query AreaQuery {
     }
   }
 
-  grays: allStrapiPlan(filter: {area: {slug: {eq: "grays"}}}) {
+  grays: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"grays"}}}}) {
     edges {
       node {
         id
@@ -365,7 +365,7 @@ query AreaQuery {
     }
   }
 
-  homewood: allStrapiPlan(filter: {area: {slug: {eq: "homewood"}}}) {
+  homewood: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"homewood"}}}}) {
     edges {
       node {
         id
@@ -377,7 +377,7 @@ query AreaQuery {
     }
   }
 
-  incline: allStrapiPlan(filter: {area: {slug: {eq: "incline"}}}) {
+  incline: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"incline"}}}}) {
     edges {
       node {
         id
@@ -389,7 +389,7 @@ query AreaQuery {
     }
   }
 
-  kings: allStrapiPlan(filter: {area: {slug: {eq: "kings"}}}) {
+  kings: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"kings"}}}}) {
     edges {
       node {
         id
@@ -401,7 +401,7 @@ query AreaQuery {
     }
   }
 
-  lahontan: allStrapiPlan(filter: {area: {slug: {eq: "lahontan"}}}) {
+  lahontan: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"lahontan"}}}}) {
     edges {
       node {
         id
@@ -413,7 +413,7 @@ query AreaQuery {
     }
   }
 
-  martis: allStrapiPlan(filter: {area: {slug: {eq: "martis"}}}) {
+  martis: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"martis"}}}}) {
     edges {
       node {
         id
@@ -425,7 +425,7 @@ query AreaQuery {
     }
   }
 
-  minden: allStrapiPlan(filter: {area: {slug: {eq: "minden"}}}) {
+  minden: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"minden"}}}}) {
     edges {
       node {
         id
@@ -437,7 +437,7 @@ query AreaQuery {
     }
   }
 
-  montreux: allStrapiPlan(filter: {area: {slug: {eq: "montreux"}}}) {
+  montreux: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"montreux"}}}}) {
     edges {
       node {
         id
@@ -449,7 +449,7 @@ query AreaQuery {
     }
   }
 
-  newwashoecity: allStrapiPlan(filter: {area: {slug: {eq: "newwashoecity"}}}) {
+  newwashoecity: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"newwashoecity"}}}}) {
     edges {
       node {
         id
@@ -461,7 +461,7 @@ query AreaQuery {
     }
   }
   
-  northlake: allStrapiPlan(filter: {area: {slug: {eq: "northlake"}}}) {
+  northlake: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"northlake"}}}}) {
     edges {
       node {
         id
@@ -473,7 +473,7 @@ query AreaQuery {
     }
   }
 
-  olympic: allStrapiPlan(filter: {area: {slug: {eq: "olympic"}}}) {
+  olympic: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"olympic"}}}}) {
     edges {
       node {
         id
@@ -485,7 +485,7 @@ query AreaQuery {
     }
   }
 
-  reno: allStrapiPlan(filter: {area: {slug: {eq: "reno"}}}) {
+  reno: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"reno"}}}}) {
     edges {
       node {
         id
@@ -497,7 +497,7 @@ query AreaQuery {
     }
   }
 
-  somersett: allStrapiPlan(filter: {area: {slug: {eq: "somersett"}}}) {
+  somersett: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"somersett"}}}}) {
     edges {
       node {
         id
@@ -509,7 +509,7 @@ query AreaQuery {
     }
   }
 
-  southlake: allStrapiPlan(filter: {area: {slug: {eq: "southlake"}}}) {
+  southlake: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"southlake"}}}}) {
     edges {
       node {
         id
@@ -521,7 +521,7 @@ query AreaQuery {
     }
   }
   
-  spanish: allStrapiPlan(filter: {area: {slug: {eq: "spanish"}}}) {
+  spanish: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"spanish"}}}}) {
     edges {
       node {
         id
@@ -533,7 +533,7 @@ query AreaQuery {
     }
   }
   
-  sparks: allStrapiPlan(filter: {area: {slug: {eq: "sparks"}}}) {
+  sparks: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"sparks"}}}}) {
     edges {
       node {
         id
@@ -545,7 +545,7 @@ query AreaQuery {
     }
   }
   
-  stateline: allStrapiPlan(filter: {area: {slug: {eq: "stateline"}}}) {
+  stateline: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"stateline"}}}}) {
     edges {
       node {
         id
@@ -557,7 +557,7 @@ query AreaQuery {
     }
   }
   
-  tahoma: allStrapiPlan(filter: {area: {slug: {eq: "tahoma"}}}) {
+  tahoma: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"tahoma"}}}}) {
     edges {
       node {
         id
@@ -569,7 +569,7 @@ query AreaQuery {
     }
   }
   
-  truckee: allStrapiPlan(filter: {area: {slug: {eq: "truckee"}}}) {
+  truckee: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"truckee"}}}}) {
     edges {
       node {
         id
@@ -581,7 +581,7 @@ query AreaQuery {
     }
   }
   
-  verdi: allStrapiPlan(filter: {area: {slug: {eq: "verdi"}}}) {
+  verdi: allStrapiPlan(filter: {areas: {elemMatch: {slug: {eq:"verdi"}}}}) {
     edges {
       node {
         id
@@ -593,7 +593,7 @@ query AreaQuery {
     }
   }
   
-  unclassified: allStrapiPlan(filter: {area: {slug: {nin: ["alpine", "carson", "cauglin", "damone", "gelena", "grays", "homewood", "incline", "kings", "lahontan", "martis", "minden", "montreux", "newwashoecity", "northlake", "olympic", "reno", "somersett", "southlake", "spanish", "sparks", "stateline", "tahoma", "truckee", "verdi"]}}}) {
+  unclassified: allStrapiPlan(filter: {areas: {elemMatch: {slug: {nin: ["alpine", "carson", "cauglin", "damone", "gelena", "grays", "homewood", "incline", "kings", "lahontan", "martis", "minden", "montreux", "newwashoecity", "northlake", "olympic", "reno", "somersett", "southlake", "spanish", "sparks", "stateline", "tahoma", "truckee", "verdi"]}}}}) {
     edges {
       node {
         id

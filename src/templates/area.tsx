@@ -27,7 +27,7 @@ export const query = graphql`
   query AreaTemplate(
     $slug: String!,
   ) {
-    area: strapiArea(slug: {eq: $slug}) {
+    areas: strapiArea(slug: {eq: $slug}) {
     id
     name
     slug
