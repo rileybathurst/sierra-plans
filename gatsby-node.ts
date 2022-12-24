@@ -18,7 +18,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   const getAreas = makeRequest(graphql, `
     {
-      allStrapiPlan {
+      allStrapiPlans {
         edges {
           node {
             slug

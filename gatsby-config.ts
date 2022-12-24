@@ -9,6 +9,7 @@ const strapiConfig = {
   accessToken: process.env.STRAPI_TOKEN,
   collectionTypes: [
     'plan',
+    'area'
   ],
   singleTypes: [],
 };

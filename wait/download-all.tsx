@@ -3,7 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import PDFBuilder from "../components/pdf-builder";
+import PDFBuilder from "../src/components/pdf-builder";
 
 /* const MyCanvas = (props = {}) => {
   const canvas1 = useRef(null);

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import PlanView from "../views/plan-view"
+import PlanView from "../../src/pages/views/plan-view"
 
 export const query = graphql`
   query PlanQuery($slug: String!) {
