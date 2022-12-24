@@ -11,6 +11,14 @@ const AreaView = ({ area }) => {
       </header>
       <main>
         {area.name}
+
+        <ul>
+          {area.plans.map((plan) => (
+            <li key={plan.id}>
+              <Link to={`/plans/${plan.slug}`}>{plan.name}</Link>
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   );

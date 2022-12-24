@@ -7,6 +7,12 @@ export const query = graphql`
     strapiArea(slug: { eq: $slug }) {
       id
       name
+
+      plans {
+        id
+        name
+        slug
+      }
     }
   }
 `
