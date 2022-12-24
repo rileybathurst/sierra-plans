@@ -2,6 +2,8 @@ import * as React from "react";
 import { Link, HeadFC } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 
+import Header from "../components/header";
+
 function Jobber(props) {
   if (props.jobber) {
     return (
@@ -14,9 +16,7 @@ function Jobber(props) {
 const IndexPage = () => {
   return (
     <>
-      <header>
-        Sierra Plans
-      </header>
+      <Header />
       <main>
         <h2>Download a single set of plans</h2>
         <StaticQuery

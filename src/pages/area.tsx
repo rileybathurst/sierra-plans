@@ -2,6 +2,8 @@ import * as React from "react";
 import { Link, HeadFC } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 
+import Header from "../components/header";
+
 function Jobber(props) {
   if (props.jobber) {
     return (
@@ -14,11 +16,8 @@ function Jobber(props) {
 const AreaPage = () => {
   return (
     <>
-      <header>
-        Sierra Plans
-      </header>
+      <Header />
       <main>
-        <h2>Download a single set of plans</h2>
         <StaticQuery
           query={query}
           render={data => (
@@ -29,40 +28,25 @@ const AreaPage = () => {
               or it might not be needed as this might just be a view and download all
               */}
 
-              <h2>Alpine</h2>
+              <h2><Link to="/areas/alpine">Alpine</Link></h2>
               <ul>
                 {data.alpine?.edges?.map(plan => (
                   <li key={plan.node.id}>
-                    {/* // TODO turn this into a flex table */}
                     <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
                   </li>
                 ))}
               </ul>
 
-              <h2>Carson</h2>
+              <h2><Link to="/areas/carson">carson</Link></h2>
               <ul>
                 {data.carson?.edges?.map(plan => (
                   <li key={plan.node.id}>
-                    {/* // TODO turn this into a flex table */}
                     <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
                   </li>
                 ))}
               </ul>
 
-              <h2>Caughlin</h2>
-              <ul>
-                {data.carson?.edges?.map(plan => (
-                  <li key={plan.node.id}>
-                    {/* // TODO turn this into a flex table */}
-                    <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
-                  </li>
-                ))}
-              </ul>
-
-
-
-
-              <h2>damone</h2>
+              <h2><Link to="/areas/damone">damone</Link></h2>
               <ul>
                 {data.damone?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -71,7 +55,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>gelena</h2>
+              <h2><Link to="/areas/gelena">gelena</Link></h2>
               <ul>
                 {data.gelena?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -80,19 +64,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-
-
-              <h2>gelena</h2>
-              <ul>
-                {data.gelena?.edges?.map(plan => (
-                  <li key={plan.node.id}>
-                    <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
-                  </li>
-                ))}
-              </ul>
-
-
-              <h2>grays</h2>
+              <h2><Link to="/areas/grays">grays</Link></h2>
               <ul>
                 {data.grays?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -101,7 +73,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>homewood</h2>
+              <h2><Link to="/areas/homewood">homewood</Link></h2>
               <ul>
                 {data.homewood?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -111,7 +83,7 @@ const AreaPage = () => {
               </ul>
 
 
-              <h2>incline</h2>
+              <h2><Link to="/areas/incline">incline</Link></h2>
               <ul>
                 {data.incline?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -120,7 +92,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>kings</h2>
+              <h2><Link to="/areas/kings">kings</Link></h2>
               <ul>
                 {data.kings?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -129,7 +101,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>lahontan</h2>
+              <h2><Link to="/areas/lahontan">lahontan</Link></h2>
               <ul>
                 {data.lahontan?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -138,7 +110,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>martis</h2>
+              <h2><Link to="/areas/martis">martis</Link></h2>
               <ul>
                 {data.martis?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -147,7 +119,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>minden</h2>
+              <h2><Link to="/areas/minden">minden</Link></h2>
               <ul>
                 {data.minden?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -156,7 +128,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>montreux</h2>
+              <h2><Link to="/areas/montreux">montreux</Link></h2>
               <ul>
                 {data.montreux?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -165,7 +137,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>newwashoecity</h2>
+              <h2><Link to="/areas/newwashoecity">newwashoecity</Link></h2>
               <ul>
                 {data.newwashoecity?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -174,7 +146,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>northlake</h2>
+              <h2><Link to="/areas/northlake">northlake</Link></h2>
               <ul>
                 {data.northlake?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -183,7 +155,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>olympic</h2>
+              <h2><Link to="/areas/olympic">olympic</Link></h2>
               <ul>
                 {data.olympic?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -192,7 +164,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>reno</h2>
+              <h2><Link to="/areas/reno">reno</Link></h2>
               <ul>
                 {data.reno?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -201,7 +173,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>somersett</h2>
+              <h2><Link to="/areas/somersett">somersett</Link></h2>
               <ul>
                 {data.somersett?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -210,7 +182,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>southlake</h2>
+              <h2><Link to="/areas/southlake">southlake</Link></h2>
               <ul>
                 {data.southlake?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -219,7 +191,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>spanish</h2>
+              <h2><Link to="/areas/spanish">spanish</Link></h2>
               <ul>
                 {data.spanish?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -229,7 +201,7 @@ const AreaPage = () => {
               </ul>
 
 
-              <h2>sparks</h2>
+              <h2><Link to="/areas/sparks">sparks</Link></h2>
               <ul>
                 {data.sparks?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -238,7 +210,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>stateline</h2>
+              <h2><Link to="/areas/stateline">stateline</Link></h2>
               <ul>
                 {data.stateline?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -247,7 +219,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>tahoma</h2>
+              <h2><Link to="/areas/tahoma">tahoma</Link></h2>
               <ul>
                 {data.tahoma?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -256,7 +228,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>truckee</h2>
+              <h2><Link to="/areas/truckee">truckee</Link></h2>
               <ul>
                 {data.truckee?.edges?.map(plan => (
                   <li key={plan.node.id}>
@@ -265,7 +237,7 @@ const AreaPage = () => {
                 ))}
               </ul>
 
-              <h2>verdi</h2>
+              <h2><Link to="/areas/verdi">verdi</Link></h2>
               <ul>
                 {data.verdi?.edges?.map(plan => (
                   <li key={plan.node.id}>
