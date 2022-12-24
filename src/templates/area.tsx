@@ -1,6 +1,8 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 
+// ! I think this was something I didnt get to and now I dont need it
+
 function Console(props) {
   console.log(props.data);
   return null;

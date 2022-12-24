@@ -25,6 +25,7 @@ const IndexPage = () => {
             <ul>
               {data.allStrapiPlan?.edges?.map(plan => (
                 <li key={plan.node.id}>
+                  {/* // TODO turn this into a flex table */}
                   <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
                 </li>
               ))}
