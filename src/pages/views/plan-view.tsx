@@ -21,7 +21,7 @@ const PlanView = ({ plan }) => {
           slug={plan.slug}
           name={plan.name}
           address={plan.address}
-          area={plan.area.name}
+          area={plan?.area?.name}
           teams={plan.teams}
           notes={plan?.childStrapiPlanNotesTextnode?.notes}
           createdAt={plan.createdAt}

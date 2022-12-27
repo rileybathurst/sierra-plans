@@ -11,8 +11,11 @@ const PDFBuilder = (props = {}) => {
   // bring the canvas up
   const canvas = useRef(null);
 
+  console.log(canvas.current.getContext("2d"));
+
   // be able to take the svg back down
   // empty but a string
+  // * this seems like a bad name
   const [count, setCount] = useState(' ');
 
   // the way canvas are drawn this has to wait

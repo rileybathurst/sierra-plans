@@ -12,71 +12,63 @@ import { jsPDF } from "jspdf";
 import Markdown from "../components/markdown";
 import Logo from "../images/logo";
 
-const PDFBuild = (props = {}) => {
-  // bring the canvas up
-  const canvas = useRef(null);
+class PDFBuild extends React.Component {
 
-  // be able to take the svg back down
-  // empty but a string
-  const [count, setCount] = useState(' ');
+  componentDidMount() {
 
-  // the way canvas are drawn this has to wait
-  useEffect(() => {
+    // bring the canvas up
+    // const canvas = useRef(null);
+
+    // be able to take the svg back down
+    // empty but a string
+    // const [count, setCount] = useState(' ');
+
+    // the way canvas are drawn this has to wait
+    // * maybe not useEffect(() => {
     // make the canvas editable
     // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
-    const context = canvas.current.getContext("2d");
+    // const context = canvas.current.getContext("2d");
 
-    const v = Canvg.fromString(context, props.svv);
-    v.start(); // this is drawing the canvas
+    // const v = Canvg.fromString(context, this.props.svv);
+    // v.start(); // this is drawing the canvas
 
     // base64 encode the canvas image
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
-    const dataURL = canvas.current.toDataURL();
-    setCount(dataURL);
-    // console.log(dataURL);
+    // const dataURL = canvas.current.toDataURL();
+    // setCount(dataURL);
+    // console.log(dataURL); */
 
     // create the pdf
     const doc = new jsPDF('p', 'in', 'letter');
     // text, offset x, offset y
-    doc.text(props.name, 0.5, 1);
+    doc.text(this.props.name, 0.5, 1);
 
     doc.setFontSize(12);
-    let add = `${props.address}, ${props.area}`;
+    let add = `${this.props.address}, ${this.props.area}`;
     doc.text(add, 0.5, 1.25);
 
     // doc.text(props.notes, 0.5, 2); // needs to be line broken
 
     doc.setFontSize(9);
 
-    if (props.notes) {
-      var splitNote = doc.splitTextToSize(props.notes, 7);
+    if (this.props.notes) {
+      var splitNote = doc.splitTextToSize(this.props.notes, 7);
       doc.text(splitNote, 0.5, 1.5);
     }
 
     // ? add a prop for tall or wide images?
 
     // imageData, format, x, y, width, height
-    doc.addImage(dataURL, 'png', 0.5, 2, 7.5, 8);
+    // * hold off doc.addImage(dataURL, 'png', 0.5, 2, 7.5, 8);
 
     // line(x1, y1, x2, y2, style)
     doc.setLineWidth(0.01);
-    // doc.line(0.5, 8, 8, 8);
 
-    /*     if (props.teams.length > 0) {
-          let people = 'Plan by: ';
-    
-          props.teams.forEach(team =>
-            people = people.concat(team.name, ' ')
-          );
-    
-          doc.text(people, 0.5, 8.5);
-        } */
-
-    if (props.createdAt !== props.updatedAt) {
-      let dates = `Created: ${props.createdAt} Updated: ${props.updatedAt}`;
+    if (this.props.createdAt !== this.props.updatedAt) {
+      let dates = `Created: ${this.props.createdAt} Updated: ${this.props.updatedAt}`;
       doc.text(dates, 0.5, 9);
     } else {
-      doc.text(`Created: ${props.updatedAt}`, 0.5, 9);
+      doc.text(`Created: ${this.props.updatedAt}`, 0.5, 9);
     }
 
     doc.line(0.5, 9.1, 8, 9.1);
@@ -90,48 +82,44 @@ const PDFBuild = (props = {}) => {
     // doc.text('Nevada Number: (775) 525-1898', 2, 9.6);
     // doc.text('California Number: (530) 414-9899', 2, 9.8);
 
-    let filename = `${props.name} ${props.slug} ${props.updatedAt}`;
+    let filename = `${this.props.name} ${this.props.slug} ${this.props.updatedAt}`;
 
-    doc.save(filename); // ! creates a file which is turned off for testing
-  });
+    doc.save(filename);
+  }
 
-  return (
-    <>
-      <h2>{props.name}</h2>
-      <h3>{props.address},&nbsp;{props.area}</h3>
+  render() {
+    return (
+      <>
+        <h2>{this.props.name}</h2>
+        <h3>{this.props.address},&nbsp;{this.props.area}</h3>
 
-      <Markdown notes={props.notes} />
+        <Markdown notes={this.props.notes} />
 
-      {/* we need a canvas built but we dont actually show it */}
-      <canvas ref={canvas} width="2550" height="2550" />
-      {/* show the image we are taking to the pdf */}
-      <img src={count} alt="the svg but its an image" className="measure" />
+        {/* we need a canvas built but we dont actually show it */}
+        {/* // * hold off <canvas ref={canvas} width="2550" height="2550" /> */}
+        {/* show the image we are taking to the pdf */}
+        {/* // * hold off <img src={count} alt="the svg but its an image" className="measure" /> */}
 
-      <hr />
+        < hr />
 
-      {/* // todo: needs a couple of if statements */}
-      <section>
-        {/*         <p>Who built these plans</p>
-        <ul>
-          {props.teams.map((team, index) => (
-            <li key={index}>{team.name}</li>
-          ))}
-        </ul> */}
-        <div className="dates">
-          <p>Created at: {props.createdAt}</p>
-          <p>Updated at: {props.updatedAt}</p>
+
+        <section>
+          <div className="dates">
+            <p>Created at: {this.props.createdAt}</p>
+            <p>Updated at: {this.props.updatedAt}</p>
+          </div>
+        </section>
+
+        <div className="plan__footer">
+          <Logo />
+          <p>info@sierra.lighting<br />
+            Nevada Number: (775) 525-1898<br />
+            California Number: (530) 414-9899
+          </p>
         </div>
-      </section>
-
-      <div className="plan__footer">
-        <Logo />
-        <p>info@sierra.lighting<br />
-          Nevada Number: (775) 525-1898<br />
-          California Number: (530) 414-9899
-        </p>
-      </div>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 
 export default PDFBuild;
