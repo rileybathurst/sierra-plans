@@ -18,6 +18,10 @@ const IndexPage = () => {
     <>
       <Header />
       <main>
+
+        <h2>// TODO: file naming guidelines for all pieces</h2>
+
+
         <h2>Download a single set of plans</h2>
         <StaticQuery
           query={query}
@@ -26,7 +30,7 @@ const IndexPage = () => {
               {data.allStrapiPlan?.edges?.map(plan => (
                 <li key={plan.node.id}>
                   {/* // TODO turn this into a flex table */}
-                  <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.name} - {plan.node.address}</Link></p>
+                  <p><Link to={`/plan/${plan.node.slug}`}><Jobber jobber={plan.node.jobber} />{plan.node.jobbertakedown} - {plan.node.name} - {plan.node.address}</Link></p>
                 </li>
               ))}
             </ul>

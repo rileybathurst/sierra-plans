@@ -26,6 +26,8 @@ const PlanView = ({ plan }) => {
           notes={plan?.childStrapiPlanNotesTextnode?.notes}
           createdAt={plan.createdAt}
           updatedAt={plan.updatedAt}
+          jobber={plan.jobber}
+          jobbertakedown={plan.jobbertakedown}
         />
       </main>
     </>

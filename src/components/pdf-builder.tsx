@@ -11,8 +11,6 @@ const PDFBuilder = (props = {}) => {
   // bring the canvas up
   const canvas = useRef(null);
 
-  console.log(canvas.current.getContext("2d"));
-
   // be able to take the svg back down
   // empty but a string
   // * this seems like a bad name
@@ -88,7 +86,7 @@ const PDFBuilder = (props = {}) => {
     // doc.text('Nevada Number: (775) 525-1898', 2, 9.6);
     // doc.text('California Number: (530) 414-9899', 2, 9.8);
 
-    let filename = `${props.name} ${props.slug} ${props.updatedAt}`;
+    let filename = `${props.jobber} ${props.name} ${props.slug} ${props.updatedAt}`;
 
     doc.save(filename); // ! creates a file which is turned off for testing
   });

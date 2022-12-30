@@ -16,6 +16,9 @@ export const query = graphql`
       childStrapiPlanNotesTextnode {
         notes
       }
+
+      jobber
+      jobbertakedown
       
       teams {
         name
