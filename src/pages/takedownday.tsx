@@ -24,7 +24,7 @@ const TakedownDayPage = () => {
             <ul>
               {data.allStrapiTakedownday?.edges?.map(day => (
                 <li key={day.node.id}>
-                  <Link to={`/takedowndays/${day.node.id}`}>
+                  <Link to={`/takedownday/${day.node.id}`}>
                     {day.node.date}-{day.node.crew}
                   </Link>
                 </li>
