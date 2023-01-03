@@ -1,10 +1,10 @@
 import * as React from "react"
 
-import PDFBuild from "../components/pdf-build";
+import UpdateBuild from "../components/update-build";
 
 const PlanPage = () => {
   return (
-    <PDFBuild
+    <UpdateBuild
       name="pop"
       address="1"
       area="2"
