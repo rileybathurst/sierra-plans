@@ -34,7 +34,7 @@ class Welcome extends React.Component {
   }
 }
 
-const UpdateBuild = (props) => {
+const UpdateBuild = (props = { plan }) => {
 
   const [stateText, setStateText] = useState(' ');
   const [dataState, setDataState] = useState(' ');
@@ -42,11 +42,11 @@ const UpdateBuild = (props) => {
   const canvas = useRef(canvas);
 
   useEffect(() => {
-    setStateText(props.name);
+    setStateText(props.plan.name);
 
     // grab the canvas and edit it with the useeffect to only do it once its drawn
     const ctx = canvas.current.getContext("2d");
-    const v = Canvg.fromString(ctx, props.svv);
+    const v = Canvg.fromString(ctx, props.plan.svg);
     v.start();
 
     // base64 encode the canvas image
@@ -55,19 +55,32 @@ const UpdateBuild = (props) => {
     setDataState(dataURL);
   });
 
+  // ! test to figure out the props
+  /*   function Console(props) {
+      console.log(props.log);
+      console.log(props.name);
+      return null;
+    } */
+
   return (
     <>
       {/* put a canvas here but its blank */}
       <canvas
         // id="test-show"
         ref={canvas}
-        width="100" height="100"
+        width="2550" height="2550"
       />
       <img src={dataState} alt="the svg but its an image" className="measure" />
       <Welcome
         stated={stateText}
         data={dataState}
       />
+      {props.plan.name}
+
+      {/*       <Console
+        log={props}
+        name={props.plan.name}
+      /> */}
     </>
   );
 }
