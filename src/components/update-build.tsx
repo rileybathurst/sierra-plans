@@ -1,4 +1,4 @@
-// ! this is really close but its using a couple hard values not variables
+// this works but needs to be finished
 
 import React, { useRef, useEffect, useState } from "react";
 
@@ -8,12 +8,22 @@ import { Canvg } from 'canvg';
 class Welcome extends React.Component {
 
   componentDidUpdate() {
-    const doc = new jsPDF('p', 'in', 'letter');
 
-    let sta = this.props.stated;
-    doc.text(sta, 0.5, 3);
 
-    // console.log(this.props.data);
+    console.log('this.props', this.props);
+    console.log('this.props.name 🍔', this.props.plan.name);
+    console.log('this.props.areas 🦖 do I need to map this now', this.props.plan.areas);
+    console.log('this.props.areas.name 🦖 do I need to map this now', this.props.plan.areas.name);
+
+    const doc = new jsPDF('p', 'in', 'letter', true);
+
+    let name = this.props.plan.name;
+    doc.text(name, 0.5, 1);
+
+    doc.setFontSize(12);
+    // this is hard coded to the first area which I dont think will be a problem
+    let add = `${this.props.plan.address}, ${this.props.plan.areas[0].name}`;
+    doc.text(add, 0.5, 1.25);
 
     doc.addImage(this.props.data, 'png', 0.5, 2, 7.5, 8);
 
@@ -28,7 +38,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <>
-        {/* <h1>Hello, world!</h1> */}
+
       </>
     );
   }
@@ -36,13 +46,11 @@ class Welcome extends React.Component {
 
 const UpdateBuild = (props = { plan }) => {
 
-  const [stateText, setStateText] = useState(' ');
   const [dataState, setDataState] = useState(' ');
 
   const canvas = useRef(canvas);
 
   useEffect(() => {
-    setStateText(props.plan.name);
 
     // grab the canvas and edit it with the useeffect to only do it once its drawn
     const ctx = canvas.current.getContext("2d");
@@ -55,13 +63,6 @@ const UpdateBuild = (props = { plan }) => {
     setDataState(dataURL);
   });
 
-  // ! test to figure out the props
-  /*   function Console(props) {
-      console.log(props.log);
-      console.log(props.name);
-      return null;
-    } */
-
   return (
     <>
       {/* put a canvas here but its blank */}
@@ -70,17 +71,16 @@ const UpdateBuild = (props = { plan }) => {
         ref={canvas}
         width="2550" height="2550"
       />
-      <img src={dataState} alt="the svg but its an image" className="measure" />
       <Welcome
-        stated={stateText}
+        // try send less arguments and grab them above as we need everything
+        plan={props.plan}
+
+        // but this is different as its being adapted
         data={dataState}
       />
-      {props.plan.name}
-
-      {/*       <Console
-        log={props}
-        name={props.plan.name}
-      /> */}
+      <h1>{props.plan.name}</h1>
+      <h2>{props.plan?.areas[0].name}</h2>
+      <img src={dataState} alt="the svg but its an image" className="measure" />
     </>
   );
 }
