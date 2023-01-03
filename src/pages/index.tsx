@@ -60,6 +60,7 @@ query IndexQuery {
         slug
         name
         jobber
+        jobbertakedown
       }
     }
   }

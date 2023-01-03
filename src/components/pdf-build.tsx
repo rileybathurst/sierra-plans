@@ -1,5 +1,5 @@
-// a combination of PDF Builder and older build
-// and class which downloads only once
+// a combination of PDF Builder which works but downloads twice
+// and class.tsx which downloads only once but doesnt have a canvas
 
 // ! this isnt made yet.
 
@@ -84,7 +84,7 @@ class PDFBuild extends React.Component {
 
     let filename = `${this.props.name} ${this.props.slug} ${this.props.updatedAt}`;
 
-    doc.save(filename);
+    // doc.save(filename); // ! off while testing
   }
 
   render() {
@@ -107,6 +107,13 @@ class PDFBuild extends React.Component {
           <div className="dates">
             <p>Created at: {this.props.createdAt}</p>
             <p>Updated at: {this.props.updatedAt}</p>
+
+
+            {/* <canvas ref={canvas} width="2550" height="2550" /> */}
+
+            {/* show the image we are taking to the pdf */}
+            {/* <img src={count} alt="the svg but its an image" className="measure" /> */}
+
           </div>
         </section>
 
