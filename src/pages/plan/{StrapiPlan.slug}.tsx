@@ -10,6 +10,7 @@ export const query = graphql`
       address
       areas {
         name
+        state
       }
       slug
       svg
@@ -25,6 +26,12 @@ export const query = graphql`
       }
       createdAt(formatString: "MMMM YYYY")
       updatedAt(formatString: "MMMM YYYY")
+
+      takedownFlexOrder
+      takedownday {
+        date(formatString: "DD MMM YY")
+        crew
+      }
     }
   }
 `
