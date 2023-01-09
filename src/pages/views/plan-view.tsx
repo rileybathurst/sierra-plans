@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Link } from "gatsby";
 
-import PDFBuilder from "../../components/pdf-builder";
+import UpdateBuild from "../../components/update-build";
 // build a pdf from an svg that comes from strapi
 // except jsPDF cant use the svg directly it needs to convert it to a canvas
 // and then convert the canvas to a base64 image
@@ -16,7 +16,7 @@ const PlanView = ({ plan }) => {
         </h1>
       </header>
       <main>
-        <PDFBuilder
+        <UpdateBuild
           svv={plan.svg}
           slug={plan.slug}
           name={plan.name}
