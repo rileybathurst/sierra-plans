@@ -17,9 +17,6 @@ export const query = graphql`
   }
 `
 
-// ! Im not getting plans as an option in http://localhost:8000/___graphql
-// thats maybe why I went to the template that I never finished?
-
 const AreaPage = ({ data }) => {
   const area = data.strapiArea;
   return (
