@@ -10,8 +10,18 @@ export const query = graphql`
 
       plans {
         id
-        name
         slug
+        name
+        address
+        areas {
+          name
+          state
+        }
+        jobber
+        jobbertakedown
+        takedownday {
+          id
+        }
       }
     }
   }

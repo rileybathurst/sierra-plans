@@ -21,7 +21,6 @@ const IndexPage = () => {
 
         <h2>// TODO: file naming guidelines for all pieces</h2>
 
-
         <h2>Download a single set of plans</h2>
         <StaticQuery
           query={query}

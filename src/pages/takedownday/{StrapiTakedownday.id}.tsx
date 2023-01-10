@@ -18,7 +18,7 @@ export const query = graphql`
 
 function Console(props) {
 
-  console.log('props', props.plans)
+  // console.log('props', props.plans);
 
   props.plans.forEach(plan => {
     const doc = new jsPDF('p', 'in', 'letter', true);

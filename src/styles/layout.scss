@@ -1,0 +1,11 @@
+header {
+  max-width: 40rem;
+  margin-inline: auto;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding-inline-start: 0;
+  }
+}

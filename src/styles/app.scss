@@ -1,7 +1,11 @@
-:root {
-  --honey: 35;
-  --measure: 40rem;
-}
+// Being an internal tool this is a great place to use some new syntax
+// - css nesting to get away from scss
+// - media queries
+
+@import "variables";
+@import "layout";
+@import "typography";
+@import "card";
 
 body {
   background-color: hsl(var(--honey), 100%, 99%);
