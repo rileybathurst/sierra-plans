@@ -3,6 +3,11 @@ import * as React from "react";
 import { Link } from "gatsby";
 import StateAbbreviation from "./state-abbreviation";
 
+function Places(props) {
+
+  return null;
+}
+
 function Takedownday(props: {
   takedownday: any
 }) {
@@ -20,7 +25,7 @@ function Takedownday(props: {
   else return null;
 }
 
-function Card(plan: {
+function SearchCard(plan: {
   key: string;
   slug: string;
   name: string;
@@ -39,8 +44,14 @@ function Card(plan: {
       <h2>
         <Link to={`/plan/${plan.slug}`}>{plan.name}</Link>
       </h2>
-      <p>{plan.address}, {plan?.areas[0].name}, <StateAbbreviation state={plan.areas[0].state} />
-      </p>
+
+      <address>
+        {plan.address},
+
+        {/* due to the way Im grabbing specific data from the API this needs a function to handle it */}
+        <Places area={plan.areas} />
+      </address>
+
       <section className="card__jobs">
         <hgroup>
           <h3>Jobber</h3>
@@ -61,4 +72,4 @@ function Card(plan: {
   );
 }
 
-export default Card
+export default SearchCard
