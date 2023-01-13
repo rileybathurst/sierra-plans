@@ -12,8 +12,8 @@ function ResultList(props) {
     return (
       <ul>
         {props.props.map(result => (
-          <li>
-            {result?.title}{result?.name}
+          <li key={result.id}>
+            {result.name}
           </li>
         ))}
       </ul>
