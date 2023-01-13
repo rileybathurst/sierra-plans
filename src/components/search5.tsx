@@ -1,5 +1,4 @@
-// I think Im one letter behind on the search which is maybe ok?
-// TODO go to a search page with answers but thats more than  I know how to do
+// If this works I will need to unerstand the difference beween edges.node and .node
 
 import React, { useState } from "react"
 import { StaticQuery, graphql } from "gatsby";
@@ -7,34 +6,9 @@ import { StaticQuery, graphql } from "gatsby";
 import * as JsSearch from 'js-search';
 // ? why is this having a problem its as documented
 // https://github.com/bvaughn/js-search
+
 // import { JsSearch } from "js-search"; // this doesnt work
 
-
-function Burger(props) {
-  // console.log("🍔");
-  // console.log(props);
-  // console.log(props.props.length); // dont do this if it hits nothing it breaks
-
-  if (props?.props?.length) {
-    console.log('things');
-
-    // TODO: I need a map here
-    return (
-      <ul>
-        {props.props.map(result => (
-          <li>
-            {result?.title}{result?.name}
-          </li>
-        ))}
-      </ul>
-    )
-  } else {
-    console.log('no things');
-    return (
-      <>Nothing found in the search</>
-    )
-  }
-}
 
 function Search5() {
 
@@ -47,7 +21,7 @@ function Search5() {
     tags: ['book', 'inspirational']
   };
 
-  // console.log(theGreatGatsby);
+  console.log(theGreatGatsby);
 
   var theDaVinciCode = {
     isbn: '0307474275',
@@ -76,7 +50,7 @@ function Search5() {
     name: 'lace2',
   };
 
-  var search = new JsSearch.Search('ibsn');
+  var search = new JsSearch.Search('isbn');
   search.addIndex('title');
   search.addIndex(['author', 'name']);
   search.addIndex('tags')
@@ -84,7 +58,7 @@ function Search5() {
   search.addDocuments([theGreatGatsby, theDaVinciCode, angelsAndDemons]);
 
   search.addDocuments([placetest, lace2]);
-  // console.log([placetest, lace2]);
+  console.log([placetest, lace2]);
 
 
   search.addIndex('id');
@@ -92,16 +66,8 @@ function Search5() {
 
   function Objectives(props) {
 
-    // ! map up here
     console.log(props.areas);
-    console.log(props);
-    // ! why would this be undefined?
-    // search.addDocuments(props?.areas); // this is the problem
-
-    // ! testing
-    // console.log(props.one)
-    console.log(props.two);
-    console.log(props.three)
+    search.addDocuments(props.areas); // this is the problem
 
     return null;
   }
@@ -111,8 +77,8 @@ function Search5() {
 
   function SearchData(e) {
     setSearchQuery(e.target.value);
-    // console.log('next is results');
-    // console.log(search.search(searchQuery));
+    console.log('next is results');
+    console.log(search.search(searchQuery));
     setSearchResults(search.search(searchQuery));
     return null;
   }
@@ -144,18 +110,12 @@ function Search5() {
         </div>
       </form>
 
-      {/* // TODO a better if there is nothing to show */}
       <div>
         <ul>
           {searchResults.map(result => (
-            <>
-              {/* <li>{result.title}{result.name}</li> */}
-              {/* <IfNull props={result} /> */}
-            </>
+            <li>{result.title}{result.name}</li>
           ))}
         </ul>
-
-        <Burger props={searchResults} />
         <hr />
       </div>
 
@@ -163,13 +123,17 @@ function Search5() {
         query={query}
         render={data => (
           <>
-            <Objectives
-              areas={data.allStrapiArea.nodes}
-              one={data}
-              two={data.allStrapiArea}
-              // ! this needs to be mapped
-              three={data.allStrapiArea.nodes}
-            />
+            {/* <Objectives areas={data.allStrapiArea.edges?.node} /> nope */}
+
+            {data.allStrapiArea.edges.map(document => (
+              <>
+                <Objectives areas={document} />
+                <div key={document.node.id}>
+                  <h2>{document.node.name}</h2>
+                  {/* <Up areas={document.node.name} /> */}
+                </div>
+              </>
+            ))}
           </>
         )}
       />
