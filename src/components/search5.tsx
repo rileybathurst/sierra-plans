@@ -1,11 +1,16 @@
+// If this works I will need to unerstand the difference beween edges.node and .node
+
 import React, { useState } from "react"
 import { StaticQuery, graphql } from "gatsby";
 
 import * as JsSearch from 'js-search';
+// ? why is this having a problem its as documented
+// https://github.com/bvaughn/js-search
+
+// import { JsSearch } from "js-search"; // this doesnt work
 
 
-
-function Search4() {
+function Search5() {
 
   var theGreatGatsby = {
     isbn: '9781597226769',
@@ -35,6 +40,16 @@ function Search4() {
     tags: ['book', 'mystery']
   };
 
+  var placetest = {
+    id: '1',
+    name: 'Placetest',
+  };
+
+  var lace2 = {
+    id: '2',
+    name: 'lace2',
+  };
+
   var search = new JsSearch.Search('isbn');
   search.addIndex('title');
   search.addIndex(['author', 'name']);
@@ -42,17 +57,17 @@ function Search4() {
 
   search.addDocuments([theGreatGatsby, theDaVinciCode, angelsAndDemons]);
 
+  search.addDocuments([placetest, lace2]);
+  console.log([placetest, lace2]);
 
-  search.addIndex('node.id');
-  search.addIndex('node.name');
+
+  search.addIndex('id');
+  search.addIndex('name');
 
   function Objectives(props) {
 
-    // console.log('🍔');
-    console.log(props.areas); // doesnt get down far enough the node might be the problem
-    console.log(props.areas.node); // 
-
-    search.addDocuments(props.areas);
+    console.log(props.areas);
+    search.addDocuments(props.areas); // this is the problem
 
     return null;
   }
@@ -62,6 +77,7 @@ function Search4() {
 
   function SearchData(e) {
     setSearchQuery(e.target.value);
+    console.log('next is results');
     console.log(search.search(searchQuery));
     setSearchResults(search.search(searchQuery));
     return null;
@@ -97,7 +113,7 @@ function Search4() {
       <div>
         <ul>
           {searchResults.map(result => (
-            <li>{result.title}</li>
+            <li>{result.title}{result.name}</li>
           ))}
         </ul>
         <hr />
@@ -107,7 +123,7 @@ function Search4() {
         query={query}
         render={data => (
           <>
-            <Objectives areas={data.allStrapiArea.edges} />
+            <Objectives areas={data.allStrapiArea.nodes} />
             {/* <Objectives areas={data.allStrapiArea.edges?.node} /> nope */}
 
             {/* {data.allStrapiArea.edges.map(document => (
@@ -123,16 +139,14 @@ function Search4() {
   )
 
 }
-export default Search4
+export default Search5
 
 const query = graphql`
 query SearchQuery {
   allStrapiArea {
-    edges {
-      node {
-        id
-        name
-      }
+    nodes {
+      id
+      name
     }
   }
 }`
