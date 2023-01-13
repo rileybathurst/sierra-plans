@@ -11,11 +11,11 @@ import * as JsSearch from 'js-search';
 
 
 function Burger(props) {
-  console.log("🍔");
-  console.log(props);
-  console.log(props.props.length);
+  // console.log("🍔");
+  // console.log(props);
+  // console.log(props.props.length); // dont do this if it hits nothing it breaks
 
-  if (props.props.length > 0) {
+  if (props?.props?.length) {
     console.log('things');
 
     // TODO: I need a map here
@@ -76,7 +76,7 @@ function Search5() {
     name: 'lace2',
   };
 
-  var search = new JsSearch.Search('isbn');
+  var search = new JsSearch.Search('ibsn');
   search.addIndex('title');
   search.addIndex(['author', 'name']);
   search.addIndex('tags')
@@ -92,8 +92,16 @@ function Search5() {
 
   function Objectives(props) {
 
-    // console.log(props.areas);
-    search.addDocuments(props.areas); // this is the problem
+    // ! map up here
+    console.log(props.areas);
+    console.log(props);
+    // ! why would this be undefined?
+    // search.addDocuments(props?.areas); // this is the problem
+
+    // ! testing
+    // console.log(props.one)
+    console.log(props.two);
+    console.log(props.three)
 
     return null;
   }
@@ -155,15 +163,13 @@ function Search5() {
         query={query}
         render={data => (
           <>
-            <Objectives areas={data.allStrapiArea.nodes} />
-            {/* <Objectives areas={data.allStrapiArea.edges?.node} /> nope */}
-
-            {/* {data.allStrapiArea.edges.map(document => (
-              <div key={document.node.id}>
-                <h2>{document.node.name}</h2>
-                <Up areas={document.node.name} />
-              </div>
-            ))} */}
+            <Objectives
+              areas={data.allStrapiArea.nodes}
+              one={data}
+              two={data.allStrapiArea}
+              // ! this needs to be mapped
+              three={data.allStrapiArea.nodes}
+            />
           </>
         )}
       />

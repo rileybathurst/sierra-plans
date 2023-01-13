@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import AreaView from "../views/area-view"
 
 export const query = graphql`
-  query AreaQuery($slug: String!) {
+  query AreaQuery($slug: String) {
     strapiArea(slug: { eq: $slug }) {
       id
       name
@@ -28,7 +28,7 @@ export const query = graphql`
 `
 
 const AreaPage = ({ data }) => {
-  const area = data.strapiArea;
+  const area = data?.strapiArea;
   return (
     <AreaView
       area={area}
