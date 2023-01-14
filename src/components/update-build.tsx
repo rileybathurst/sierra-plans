@@ -124,50 +124,46 @@ const UpdateBuild = (props = { plan }) => {
   });
 
   return (
-    <>
-      <Header />
-      <main>
-        {/* put a canvas here but its blank */}
-        <canvas
-          // id="test-show"
-          ref={canvas}
-          width="2550" height="2550"
-        />
-        <Welcome
-          // try send less arguments and grab them above as we need everything
-          plan={props.plan}
+    <main>
+      {/* put a canvas here but its blank */}
+      <canvas
+        // id="test-show"
+        ref={canvas}
+        width="2550" height="2550"
+      />
+      <Welcome
+        // try send less arguments and grab them above as we need everything
+        plan={props.plan}
 
-          // but this is different as its being adapted
-          data={dataState}
-        />
-        <h1>{props.plan.name}</h1>
-        <h2 className="capitalize">{props.plan.address} {props.plan?.areas[0]?.name}&nbsp;{props.plan?.areas[0]?.state}</h2>
-        <p>
-          {/* // TODO: put a fail state in here */}
-          Jobber install {props.plan?.jobber}<br />
-          Jobber takedown {props.plan?.jobbertakedown}
-        </p>
+        // but this is different as its being adapted
+        data={dataState}
+      />
+      <h1>{props.plan.name}</h1>
+      <h2 className="capitalize">{props.plan.address} {props.plan?.areas[0]?.name}&nbsp;{props.plan?.areas[0]?.state}</h2>
+      <p>
+        {/* // TODO: put a fail state in here */}
+        Jobber install {props.plan?.jobber}<br />
+        Jobber takedown {props.plan?.jobbertakedown}
+      </p>
 
-        <Markdown notes={props.plan?.childStrapiPlanNotesTextnode?.notes} />
+      <Markdown notes={props.plan?.childStrapiPlanNotesTextnode?.notes} />
 
-        <img src={dataState} alt="the svg but its an image" className="measure" />
+      <img src={dataState} alt="the svg but its an image" className="measure" />
 
-        <h4>Created at {props.plan.createdAt}</h4>
-        <h4>Updated at {props.plan.createdAt}</h4>
+      <h4>Created at {props.plan.createdAt}</h4>
+      <h4>Updated at {props.plan.createdAt}</h4>
 
-        <hr />
+      <hr />
 
-        <section>
-          Takedown
+      <section>
+        Takedown
 
-          <p>crew - {props.plan?.takedownday?.crew}</p>
-          <p>date - {props.plan?.takedownday?.date}</p>
-          <p>job for the day #{props.plan.takedownFlexOrder}</p>
+        <p>crew - {props.plan?.takedownday?.crew}</p>
+        <p>date - {props.plan?.takedownday?.date}</p>
+        <p>job for the day #{props.plan.takedownFlexOrder}</p>
 
-        </section>
-      </main>
-      <Footer />
-    </>
+      </section>
+    </main>
   );
 }
 

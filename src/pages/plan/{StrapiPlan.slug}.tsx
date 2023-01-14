@@ -1,6 +1,8 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import UpdateBuild from "../../components/update-build";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 export const query = graphql`
   query PlanQuery($slug: String!) {
@@ -39,9 +41,13 @@ export const query = graphql`
 const PlanPage = ({ data }) => {
   const plan = data.strapiPlan;
   return (
-    <UpdateBuild
-      plan={plan}
-    />
+    <>
+      <Header />
+      <UpdateBuild
+        plan={plan}
+      />
+      <Footer />
+    </>
   );
 };
 
