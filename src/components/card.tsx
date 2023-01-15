@@ -39,8 +39,7 @@ function Card(plan: {
       <h2>
         <Link to={`/plan/${plan.slug}`}>{plan.name}</Link>
       </h2>
-      <p>{plan.address}, {plan?.areas[0].name}, <StateAbbreviation state={plan.areas[0].state} />
-      </p>
+      {/* <p>{plan.address}, {plan?.areas[0].name}, <StateAbbreviation state={plan.areas[0].state} /></p> */}
       <section className="card__jobs">
         <hgroup>
           <h3>Jobber</h3>
