@@ -7,20 +7,51 @@ import * as JsSearch from 'js-search';
 // import { JsSearch } from "js-search"; // this doesnt work
 
 import SearchCard from "./search-card";
+import Card from "./card";
+
+function Type(props) {
+  // console.log(props.data);
+  if (props.data.hasOwnProperty('jobber')) {
+    // console.log('plan');
+
+    /* 
+      this doesnt do it early enough
+    react ordering is hard to understand
+    Object.defineProperty(props.data, 'property1', {
+      value: 42,
+      writable: false
+    }); */
+
+    return (
+      <Card {...props} />
+    );
+
+  } else {
+    return (
+      <SearchCard {...props} />
+    );
+  }
+
+
+}
 
 function ResultList(props) {
   // this is nested and named in a confusing way
   if (props.props.length) {
+
+    // console.log(props.props);
+
     return (
-      <ul>
+      <ul className="deck">
         {props.props.map(result => (
           <li key={result.id}>
-            <SearchCard
+            <Type data={result} />
+            {/* <SearchCard
               {...result}
-            />
-            <>
+            /> */}
+            {/*  <>
               {result.name}
-            </>
+            </> */}
           </li>
         ))}
       </ul>
@@ -61,10 +92,13 @@ function Search8() {
       <StaticQuery
         query={query}
         render={data => (
-          <Documents
-            areas={data.allStrapiArea.nodes}
-            plans={data.allStrapiPlan.nodes}
-          />
+          <>
+            <Documents
+              areas={data.allStrapiArea.nodes}
+              plans={data.allStrapiPlan.nodes}
+            />
+            <Type data={data} />
+          </>
         )}
       />
       <form
@@ -82,7 +116,10 @@ function Search8() {
           />
         </div>
       </form>
-      <ResultList props={searchResults} />
+      <ResultList
+        props={searchResults}
+      // which={data}
+      />
     </>
   )
 

@@ -16,7 +16,7 @@ function Header() {
           <li key="area"><Link to="/area">Area</Link></li>
           <li key="takedownday"><Link to="/takedownday">Takedown Day</Link></li>
           <li key="guides"><Link to="/guides">Guides</Link></li>
-          <li key="search"><Link to="/search7">Search</Link></li>
+          <li key="search"><Link to="/search8">Search</Link></li>
         </ul>
       </nav>
     </header>

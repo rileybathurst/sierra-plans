@@ -8,6 +8,7 @@
 
   .card {
     border: 1px solid hsl(var(--honey), 50%, 50%);
+    border: 1px solid red; // ! testing
     border-radius: 0.5rem;
     // TODO: box-shadow: 0 0 0.5rem 0.5rem hsl(var(--honey), 100%, 99%);
     padding: 1rem;

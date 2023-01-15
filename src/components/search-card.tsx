@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import StateAbbreviation from "./state-abbreviation";
 
 function Places(props) {
-
+  // TODO: 
   return null;
 }
 
@@ -24,36 +24,6 @@ function Takedownday(props: {
   else return null;
 }
 
-function AreaPlan(props: {
-  name: string;
-}) {
-
-  <StaticQuery
-    query={query}
-    render={data => (
-      <AreaPlan
-        areas={data.allStrapiArea.nodes}
-      />
-    )}
-  />
-
-
-  // if plan is in this list?
-  // would that mean I need to query that list?
-  // I could do by something more unique but what if its not filled out?
-
-
-  if (props.name ==) {
-    return (
-      <>Area</>
-    );
-  } else {
-    return (
-      <>Plan</>
-    );
-  }
-}
-
 function SearchCard(plan: {
   key: string;
   slug: string;
@@ -66,14 +36,21 @@ function SearchCard(plan: {
   jobber: number;
   jobbertakedown: number;
   takedownday: any; // this is an array of data so I need to learn on this
+  property1: string; // ! test
 }
 ) {
+
+  console.log(plan);
+
   return (
     <li key={plan.key} className="card">
 
-      <AreaPlan
+      {/*       <AreaPlan
         name={plan.name}
-      />
+      /> */}
+
+
+      {plan.property1}
 
       <h2>
         <Link to={`/plan/${plan.slug}`}>{plan.name}</Link>
@@ -107,12 +84,3 @@ function SearchCard(plan: {
 }
 
 export default SearchCard
-
-const query = graphql`
-query SearchCardQuery {
-  allStrapiArea {
-    nodes {
-      name
-    }
-  }
-}`
