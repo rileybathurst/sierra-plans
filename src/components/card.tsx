@@ -32,12 +32,20 @@ function Card(plan: {
   jobber: number;
   jobbertakedown: number;
   takedownday: any; // this is an array of data so I need to learn on this
-}
-) {
+}) {
+
+  console.log('🦖');
+  console.log(plan);
+  console.log(plan.plan.name);
+
   return (
     <li key={plan.key} className="card">
       <h2>
-        <Link to={`/plan/${plan.slug}`}>{plan.name}</Link>
+        <Link to={`/plan/${plan.slug}`}>
+          {plan.name}
+          // ! this fixes the search and breaks the other things
+          {plan?.plan?.name}
+        </Link>
       </h2>
       {/* <p>{plan.address}, {plan?.areas[0].name}, <StateAbbreviation state={plan.areas[0].state} /></p> */}
       <section className="card__jobs">

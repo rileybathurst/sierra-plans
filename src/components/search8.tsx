@@ -10,7 +10,8 @@ import SearchCard from "./search-card";
 import Card from "./card";
 
 function Type(props) {
-  // console.log(props.data);
+  console.log(props.data);
+
   if (props.data.hasOwnProperty('jobber')) {
     // console.log('plan');
 
@@ -22,13 +23,20 @@ function Type(props) {
       writable: false
     }); */
 
+    // * this is sending everything through not just the selected
     return (
-      <Card {...props} />
+      <Card plan={props.data} />
     );
 
   } else {
     return (
-      <SearchCard {...props} />
+      <>
+        not a plan
+        {/*         <SearchCard
+          {...props}
+          plan={props.data}
+        /> */}
+      </>
     );
   }
 
@@ -49,9 +57,7 @@ function ResultList(props) {
             {/* <SearchCard
               {...result}
             /> */}
-            {/*  <>
-              {result.name}
-            </> */}
+            {/* {result.name} */}
           </li>
         ))}
       </ul>
@@ -92,13 +98,10 @@ function Search8() {
       <StaticQuery
         query={query}
         render={data => (
-          <>
-            <Documents
-              areas={data.allStrapiArea.nodes}
-              plans={data.allStrapiPlan.nodes}
-            />
-            <Type data={data} />
-          </>
+          <Documents
+            areas={data.allStrapiArea.nodes}
+            plans={data.allStrapiPlan.nodes}
+          />
         )}
       />
       <form
