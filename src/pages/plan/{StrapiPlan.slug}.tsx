@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import UpdateBuild from "../../components/update-build";
+
+import Pdfbuild from "../../components/update-build";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 
@@ -41,7 +42,7 @@ const PlanPage = ({ data }) => {
   return (
     <>
       <Header />
-      <UpdateBuild
+      <Pdfbuild
         plan={plan}
       />
       <Footer />

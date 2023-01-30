@@ -94,7 +94,7 @@ class Welcome extends React.Component {
     // takedown order
     let filename = `${jobber}${this.props.plan?.name}${this.props.plan?.slug}${takeDate}${takeCrew}${takeOrder}`;
 
-    doc.save(filename); // ! turn off for developing
+    // doc.save(filename); // ! turn off for developing
   }
 
   render() {
@@ -102,7 +102,7 @@ class Welcome extends React.Component {
   }
 }
 
-const UpdateBuild = (props = { plan }) => {
+const PdfBuild = (props = { plan }) => {
 
   const [dataState, setDataState] = useState(' ');
 
@@ -165,4 +165,4 @@ const UpdateBuild = (props = { plan }) => {
   );
 }
 
-export default UpdateBuild
+export default PdfBuild
