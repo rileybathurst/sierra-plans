@@ -47,7 +47,7 @@ const GuidesPage = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="guide"
           >
-            <line x1="1" y1="1" x2="9" y2="1" stroke-width="1" stroke="#999" stroke-linecap="round" />
+            <line x1="1" y1="1" x2="9" y2="1" stroke-width="1" stroke="#999" strokeLinecap="round" />
           </svg>
 
           <h3>Lit Line</h3>
@@ -56,7 +56,7 @@ const GuidesPage = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="guide"
           >
-            <line x1="1" y1="1" x2="9" y2="1" stroke-width="1" stroke="#FF0000" stroke-linecap="round" />
+            <line x1="1" y1="1" x2="9" y2="1" stroke-width="1" stroke="#FF0000" strokeLinecap="round" />
           </svg>
         </section>
       </main>

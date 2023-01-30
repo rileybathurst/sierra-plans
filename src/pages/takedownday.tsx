@@ -26,6 +26,7 @@ const TakedownDayPage = () => {
                 <li key={day.node.id}>
                   <Link to={`/takedownday/${day.node.id}`}>
                     {day.node.date}-{day.node.crew}
+                    {/* // TODO cards maybe mini cards for each job involved */}
                   </Link>
                 </li>
               ))}

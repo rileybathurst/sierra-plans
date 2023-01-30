@@ -1,3 +1,5 @@
+// trying with ... spread or rest Im not 100% sure on this
+
 import React, { useState } from "react"
 import { StaticQuery, graphql } from "gatsby";
 
@@ -6,14 +8,28 @@ import * as JsSearch from 'js-search';
 // https://github.com/bvaughn/js-search
 // import { JsSearch } from "js-search"; // this doesnt work
 
+import SearchCard from "./search-card";
+import OtherCard from "./other-card";
+import Card from "./card";
+
+function Type(props) {
+  console.log(props);
+
+  return null;
+}
+
 function ResultList(props) {
   // this is nested and named in a confusing way
   if (props.props.length) {
+
+    // console.log(props.props);
+
     return (
-      <ul>
+      <ul className="deck">
         {props.props.map(result => (
           <li key={result.id}>
-            {result.name}
+            // * specifically doent have a prop has a spread instead
+            <Type {...result} />
           </li>
         ))}
       </ul>
@@ -25,12 +41,14 @@ function ResultList(props) {
   }
 }
 
-function Search7() {
-  var search = new JsSearch.Search('id'); // why does this always cause a problem
+function Search8() {
+  var search = new JsSearch.Search('id');
   search.addIndex('name');
+  search.addIndex('jobber');
 
   function Documents(props) {
-    search.addDocuments(props.areas); // this is the problem
+    search.addDocuments(props.areas);
+    search.addDocuments(props.plans);
     return null;
   }
 
@@ -52,7 +70,10 @@ function Search7() {
       <StaticQuery
         query={query}
         render={data => (
-          <Documents areas={data.allStrapiArea.nodes} />
+          <Documents
+            areas={data.allStrapiArea.nodes}
+            plans={data.allStrapiPlan.nodes}
+          />
         )}
       />
       <form
@@ -70,12 +91,15 @@ function Search7() {
           />
         </div>
       </form>
-      <ResultList props={searchResults} />
+      <ResultList
+        props={searchResults}
+      // which={data}
+      />
     </>
   )
 
 }
-export default Search7
+export default Search8
 
 const query = graphql`
 query SearchQuery {
@@ -83,6 +107,14 @@ query SearchQuery {
     nodes {
       id
       name
+    }
+  }
+
+  allStrapiPlan {
+    nodes {
+      name
+      jobber
+      address
     }
   }
 }`

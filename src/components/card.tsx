@@ -36,15 +36,18 @@ function Card(plan: {
 
   console.log('🦖');
   console.log(plan);
-  console.log(plan.plan.name);
+  // console.log(plan.plan.name);
 
   return (
     <li key={plan.key} className="card">
       <h2>
         <Link to={`/plan/${plan.slug}`}>
           {plan.name}
-          // ! this fixes the search and breaks the other things
-          {plan?.plan?.name}
+
+          {/* // ! this fixes the search and breaks the other things */}
+          {/* naming the fuction plan is kinda the props */}
+
+          {/* {plan?.plan?.name} */}
         </Link>
       </h2>
       {/* <p>{plan.address}, {plan?.areas[0].name}, <StateAbbreviation state={plan.areas[0].state} /></p> */}

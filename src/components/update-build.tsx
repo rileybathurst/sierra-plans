@@ -6,9 +6,6 @@ import { jsPDF } from "jspdf";
 import { Canvg } from 'canvg';
 import Markdown from "./markdown";
 
-import Header from "./header";
-import Footer from "./footer";
-
 class Welcome extends React.Component {
 
   componentDidUpdate() {
@@ -43,7 +40,7 @@ class Welcome extends React.Component {
 
     if (this.props?.plan?.childStrapiPlanNotesTextnode) {
       // console.log('🦖');
-      var splitNote = doc.splitTextToSize(this.props.plan.childStrapiPlanNotesTextnode.notes, 7);
+      var splitNote = doc.splitTextToSize(this.props.plan?.childStrapiPlanNotesTextnode.notes, 7);
       doc.text(splitNote, 0.5, 1.5);
     }
 

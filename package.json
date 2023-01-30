@@ -18,14 +18,14 @@
   },
   "dependencies": {
     "canvg": "^4.0.1",
-    "gatsby": "^4.22.0",
-    "gatsby-plugin-image": "^2.23.0",
-    "gatsby-plugin-sass": "^5.23.0",
-    "gatsby-plugin-sharp": "^4.23.0",
-    "gatsby-source-filesystem": "^4.23.0",
-    "gatsby-source-strapi": "^2.0.0",
-    "gatsby-transformer-remark": "^5.22.0",
-    "gatsby-transformer-sharp": "^4.23.0",
+    "gatsby": "^5.4.1",
+    "gatsby-plugin-image": "^3.4.0",
+    "gatsby-plugin-sass": "^6.4.0",
+    "gatsby-plugin-sharp": "^5.4.0",
+    "gatsby-source-filesystem": "^5.4.0",
+    "gatsby-source-strapi": "^3.0.4",
+    "gatsby-transformer-remark": "^6.4.0",
+    "gatsby-transformer-sharp": "^5.4.0",
     "js-search": "^2.0.0",
     "jspdf": "^2.5.1",
     "pdfjs-dist": "^3.0.279",
@@ -36,7 +36,7 @@
     "sass": "^1.54.9"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "typescript": "^4.8.2"

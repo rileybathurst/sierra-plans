@@ -16,9 +16,6 @@ export const query = graphql`
       }
       slug
       svg
-      childStrapiPlanNotesTextnode {
-        notes
-      }
 
       jobber
       jobbertakedown
@@ -38,6 +35,7 @@ export const query = graphql`
   }
 `
 
+// ? I wondering if adding types here would help diagnose if this is the problem
 const PlanPage = ({ data }) => {
   const plan = data.strapiPlan;
   return (
@@ -52,3 +50,8 @@ const PlanPage = ({ data }) => {
 };
 
 export default PlanPage;
+
+/* // ! I think this is the problem it changed at some point I need to document it
+childStrapiPlanNotesTextnode {
+  notes
+} */
