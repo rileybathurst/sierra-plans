@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 
-import Pdfbuild from "../../components/update-build";
+import Pdfbuild from "../../components/pdf-build";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 

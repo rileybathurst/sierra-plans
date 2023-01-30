@@ -1,4 +1,6 @@
-// this works but needs to be finished
+// // this works but needs to be finished
+// this no longer works it gives an error on when the canvas is loaded
+// moving the build to pdf-build to fix it with this still here
 
 import React, { useRef, useEffect, useState } from "react";
 
@@ -10,6 +12,7 @@ import Markdown from "./markdown";
 class Welcome extends React.Component {
 
   componentDidUpdate() {
+
 
     const doc = new jsPDF('p', 'in', 'letter', true);
 
