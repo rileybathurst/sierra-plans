@@ -2,7 +2,29 @@
 //  #TYPOGRAPHY
 /*------------------*/
 
+/*------------------*/
+//  #RESET
+/*------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block-start: 0;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 1.5rem;
+}
+
 // TODO: needs all the adding this in on a bigger screen
 h1 {
   font-family: "josefin-sans", sans-serif;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

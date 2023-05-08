@@ -1,4 +1,5 @@
 // ! canvas load error
+// Im pretty sure this was a ref error I fixed
 
 import React, { useRef, useEffect, useState } from "react";
 
