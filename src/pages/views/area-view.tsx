@@ -10,9 +10,9 @@ const AreaView = ({ area }) => {
     <>
       <Header />
       <main>
-        <h1>{area.name}</h1>
+        {/* <h1>{area.name}</h1> */}
 
-        <ul className="deck">
+        {/* <ul className="deck">
           {area.plans.map((plan: {
             id: string;
             slug: string;
@@ -37,7 +37,7 @@ const AreaView = ({ area }) => {
               takedownday={plan.takedownday}
             />
           ))}
-        </ul>
+        </ul> */}
       </main>
       <Footer />
     </>

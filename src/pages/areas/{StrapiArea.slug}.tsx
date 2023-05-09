@@ -1,8 +1,10 @@
+// ! theres something wrong here
+
 import * as React from "react"
 import { graphql } from "gatsby"
 import AreaView from "../views/area-view"
 
-export const query = graphql`
+/* export const query = graphql`
   query AreaQuery($slug: String) {
     strapiArea(slug: { eq: $slug }) {
       id
@@ -36,4 +38,4 @@ const AreaPage = ({ data }) => {
   );
 };
 
-export default AreaPage;
+export default AreaPage; */
