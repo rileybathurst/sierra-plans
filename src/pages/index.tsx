@@ -5,6 +5,35 @@ import { useStaticQuery, graphql } from "gatsby";
 import Header from "../components/header";
 import AreaList from "../components/area-list";
 
+function Plans(props) {
+  if (props.plans.nodes) {
+    // console.log(props?.plans.nodes)
+
+    if (props.plans.nodes[0]?.areas) {
+      // console.log(props.plans.nodes[0]?.areas[0]?.name)
+      // console.log(props.plans.nodes[0]?.id)
+
+      return (
+        <>
+          <Link to={`/areas/${props.plans.nodes[0]?.areas[0]?.slug}`}>
+            <h3>{props.plans.nodes[0]?.areas[0]?.name}</h3>
+          </Link>
+          <ul>
+            {props.plans.nodes.map((plan: { id: React.Key; }) => (
+              <li key={plan.id}>
+                <Stack plan={plan} />
+              </li>
+            ))}
+          </ul>
+        </>
+      );
+    }
+  } else {
+    console.log("🏝️")
+    return null;
+  }
+}
+
 function Stack(props: {
   plan: {
     id: React.Key;
@@ -50,12 +79,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
 
@@ -64,12 +88,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
 
@@ -78,12 +97,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
 
@@ -92,12 +106,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
 
@@ -106,12 +115,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -120,12 +124,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -134,12 +133,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -148,12 +142,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -162,12 +151,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -176,12 +160,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -190,12 +169,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -204,12 +178,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -218,12 +187,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -232,12 +196,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -246,12 +205,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -260,12 +214,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
 
@@ -275,12 +224,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -290,12 +234,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
 
@@ -304,12 +243,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -318,12 +252,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -332,12 +261,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -346,12 +270,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -374,12 +293,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -388,12 +302,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -402,12 +311,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -416,12 +320,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -430,12 +329,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -444,12 +338,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -487,12 +376,7 @@ const IndexPage = () => {
         }}}})
       {
         nodes {
-          id
-          address
-          slug
-          name
-          jobber
-          jobbertakedown
+          ...homeCard
         }
       }
     
@@ -529,318 +413,54 @@ const IndexPage = () => {
   const glenbrook = query.glenbrook;
   const other = query.other;
 
+  let areas = [
+    northlake,
+    truckee,
+    caughlin,
+    alpine,
+    homewood,
+    incline,
+    kings,
+    olympic,
+    grays,
+    martis,
+    lahontan,
+    southlake,
+    tahoma,
+    carson,
+    minden,
+    stateline,
+    reno,
+    damone,
+    gelena,
+    montreux,
+    somersett,
+    sparks,
+    spanish,
+    donner,
+    verdi,
+    newwashoecity,
+    markleeville,
+    glenbrook,
+    other
+  ]
+
   return (
     <>
       <Header />
 
-      <main>
+      <main className="index-main">
         <AreaList />
 
         {/* TODO: add a usestate option drop to pull the right one */}
         {/* <h2>// TODO: file naming guidelines for all pieces</h2> */}
 
         <h2>Download a single set of plans</h2>
-
-        <h3><Link to="/areas/northlake">North Lake Tahoe</Link></h3>
-        <ul>
-          {northlake.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/truckee">Truckee</Link></h3>
-        <ul>
-          {truckee.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/caughlin">Caughlin</Link></h3>
-        <ul>
-          {caughlin.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/alpine">Alpine Meadows</Link></h3>
-        <ul>
-          {alpine.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/homewood">Homewood</Link></h3>
-        <ul>
-          {homewood.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/incline">Incline Village</Link></h3>
-        <ul>
-          {incline.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/kings">Kings Beach</Link></h3>
-        <ul>
-          {kings.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/olympic">Olympic Valley</Link></h3>
-        <ul>
-          {olympic.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/grays">Grays Crossing</Link></h3>
-        <ul>
-          {grays.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/martis">Martis Camp</Link></h3>
-        <ul>
-          {martis.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/lahontan">Lahontan</Link></h3>
-        <ul>
-          {lahontan.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/southlake">Southlake</Link></h3>
-        <ul>
-          {southlake.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/tahoma">Tahoma</Link></h3>
-        <ul>
-          {tahoma.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/carson">Carson City</Link></h3>
-        <ul>
-          {carson.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/minden">Minden</Link></h3>
-        <ul>
-          {minden.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/truckee">Truckee</Link></h3>
-        <ul>
-          {reno.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/truckee">Truckee</Link></h3>
-        <ul>
-          {reno.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/truckee">Truckee</Link></h3>
-        <ul>
-          {reno.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/stateline">Stateline</Link></h3>
-        <ul>
-          {stateline.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/reno">Reno</Link></h3>
-        <ul>
-          {reno.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/damone">Damone</Link></h3>
-        <ul>
-          {damone.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/gelena">Gelena</Link></h3>
-        <ul>
-          {gelena.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/montreux">Montreux</Link></h3>
-        <ul>
-          {montreux.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/somersett">Somersett</Link></h3>
-        <ul>
-          {somersett.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/sparks">Sparks</Link></h3>
-        <ul>
-          {sparks.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/spanish">Spanish Springs</Link></h3>
-        <ul>
-          {spanish.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/montreux">Montreux</Link></h3>
-        <ul>
-          {montreux.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/donner">Donner Pass</Link></h3>
-        <ul>
-          {donner.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/verdi">Verdi</Link></h3>
-        <ul>
-          {verdi.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/new-washoe-city">New Washoe City</Link></h3>
-        <ul>
-          {newwashoecity.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/markleeville">Markleeville</Link></h3>
-        <ul>
-          {markleeville.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3><Link to="/areas/glenbrook">Glenbrook</Link></h3>
-        <ul>
-          {glenbrook.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-        <h3>These Need A Home</h3>
-        <ul>
-          {other.nodes.map((plan: { id: React.Key; }) => (
-            <li key={plan.id}>
-              <Stack plan={plan} />
-            </li>
-          ))}
-        </ul>
-
-
-
-
+        {areas.map((areas) => (
+          <div key={areas.nodes[0]?.id}>
+            <Plans plans={areas} />
+          </div>
+        ))}
 
         <h2><Link to="/download-all">Or download all</Link></h2>
         <p>well download them all twice in either situation because I dont know what I'm doing</p>

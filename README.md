@@ -6,8 +6,6 @@ The building through the web was for updateability
 
 I cant build this online as it has private info on it.
 
-Im kinda confused by the process but in the end it works.
-
 1. Grab the SVG from the strapi CMS
 2. Place a blank canvas
 3. UseEffect to update the canvas with the SVG after it has been loaded as otherwise theres nothing to change

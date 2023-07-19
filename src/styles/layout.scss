@@ -73,6 +73,20 @@ img {
   gap: 1rem;
 }
 
+.index-main {
+  position: relative;
+  > h3 {
+    background-color: hsl(var(--honey), 100%, 95%);
+    box-shadow: 0 0 0 100vmax hsl(var(--honey), 100%, 95%);
+    clip-path: inset(0 -100vmax);
+    position: sticky;
+    top: 0;
+    z-index: 9; // needs to get over the cards still
+    padding-block: 0.5rem;
+    border-block-end: 1px solid hsl(var(--honey), 100%, 25%);
+  }
+}
+
 // ! Test
 #test-show {
   display: block;
