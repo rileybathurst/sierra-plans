@@ -63,9 +63,9 @@ class Welcome extends React.Component {
           doc.text(takeOrder, 6.15, 2);
         } */
 
-    if (this.props?.plan?.childStrapiPlanNotesTextnode) {
+    if (this.props?.plan?.notes.data.notes) {
       // console.log('🦖');
-      var splitNote = doc.splitTextToSize(this.props.plan?.childStrapiPlanNotesTextnode.notes, 7);
+      var splitNote = doc.splitTextToSize(this.props.plan?.notes.data.notes, 7);
       doc.text(splitNote, 0.5, 1.5);
     }
 
@@ -144,7 +144,7 @@ const UpdateBuild = (props = { plan }) => {
         Jobber takedown {props.plan?.jobbertakedown}
       </p>
 
-      <Markdown notes={props.plan?.childStrapiPlanNotesTextnode?.notes} />
+      <Markdown notes={props.plan?.notes.data.notes} />
 
       <img src={dataState} alt="the svg but its an image" className="measure" />
 

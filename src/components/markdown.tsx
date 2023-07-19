@@ -11,7 +11,9 @@ function Markdown(props) {
       remarkPlugins={[remarkGfm]}
     />;
   } else {
-    return null;
+    return (
+      <>No Notes</>
+    );
   }
 }
 

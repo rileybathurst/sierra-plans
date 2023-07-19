@@ -18,6 +18,12 @@ export const query = graphql`
       slug
       svg
 
+      notes {
+        data {
+          notes
+        }
+      }
+
       jobber
       jobbertakedown
       
