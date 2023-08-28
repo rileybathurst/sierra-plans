@@ -66,7 +66,7 @@ class Welcome extends React.Component {
     if (this.props?.plan?.notes.data.notes) {
       // console.log('🦖');
       var splitNote = doc.splitTextToSize(this.props.plan?.notes.data.notes, 7);
-      doc.text(splitNote, 0.5, 1.5);
+      doc.text(splitNote, 0.5, 1.5, { maxWidth: 6 });
     }
 
     doc.addImage(this.props.data, 'png', 0.5, 2, 7.5, 8);
