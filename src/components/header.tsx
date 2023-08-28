@@ -6,7 +6,9 @@ import Logo from "../images/logo";
 function Header() {
   return (
     <header>
-      <Logo />
+      <Link to="/">
+        <Logo />
+      </Link>
       <h1>
         <Link to="/">Plans</Link>
       </h1>
