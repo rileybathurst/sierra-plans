@@ -13,3 +13,8 @@ I cant build this online as it has private info on it.
 5. Set that base string as a State
 6. Use a class with a componentDidMount so it only loads once the canvas is ready
 7. Build out the PDF with the info from the CMS and the SVG
+
+## Issues
+
+- working with a lot of pages without a build the cache gets lost, a lot of the time just restart the server of clean restart
+- occassionaly something like this wont be on the home page or searchable just grab it from the slug http://localhost:8000/plan/123-midas-ct/

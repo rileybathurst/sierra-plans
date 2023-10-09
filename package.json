@@ -18,26 +18,26 @@
   },
   "dependencies": {
     "canvg": "^4.0.1",
-    "gatsby": "^5.4.1",
-    "gatsby-plugin-image": "^3.4.0",
-    "gatsby-plugin-sass": "^6.4.0",
-    "gatsby-plugin-sharp": "^5.4.0",
-    "gatsby-source-filesystem": "^5.4.0",
-    "gatsby-source-strapi": "^3.0.4",
-    "gatsby-transformer-remark": "^6.4.0",
-    "gatsby-transformer-sharp": "^5.4.0",
-    "js-search": "^2.0.0",
+    "gatsby": "^5.12.5",
+    "gatsby-plugin-image": "^3.12.0",
+    "gatsby-plugin-sass": "^6.12.0",
+    "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-source-strapi": "^3.3.1",
+    "gatsby-transformer-remark": "^6.12.0",
+    "gatsby-transformer-sharp": "^5.12.0",
+    "js-search": "^2.0.1",
     "jspdf": "^2.5.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-markdown": "^8.0.3",
-    "remark-gfm": "^3.0.1",
-    "sass": "^1.54.9"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.0",
+    "remark-gfm": "^4.0.0",
+    "sass": "^1.68.0"
   },
   "devDependencies": {
-    "@types/node": "^20.1.0",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "typescript": "^5.0.4"
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.24",
+    "@types/react-dom": "^18.2.8",
+    "typescript": "^5.2.2"
   }
 }

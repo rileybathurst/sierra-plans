@@ -11,10 +11,15 @@ class Welcome extends React.Component {
 
     const doc = new jsPDF('p', 'in', 'letter', true);
 
+    // console.log(doc.getFontList());
+    // this doesnt adjust the image thats done in the SVG
+    doc.setFont('helvetica', 'normal');
+
     doc.setLineWidth(0.01);
 
     let name = this.props.plan.name;
     doc.text(name, 0.5, 0.75);
+
 
     doc.setFontSize(12);
     // this is hard coded to the first area which I dont think will be a problem
