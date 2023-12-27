@@ -60,15 +60,12 @@
   row-gap: 1.5rem;
   box-shadow: var(--penumbra);
 
+  text-decoration: none; // * clears links text
+
   > * {
     display: flex;
     // controls the supra
     flex-direction: column-reverse;
-  }
-
-  a {
-    text-decoration: none; // TODO: this doesnt work.
-    // look into can i include
   }
 
   .name {

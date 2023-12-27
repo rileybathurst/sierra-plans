@@ -48,6 +48,7 @@ function Stack(props: {
     <Link
       to={`/plan/${props.plan.slug}`}
       className="stack"
+    // ? why is this not a card?
     >
       <section className="name">
         <h3>{props.plan.name}</h3>
