@@ -46,8 +46,8 @@ function OnlyPlans(props) {
       <ul className="areas-list">
         {Array.from(hasPlans).map((plan: any) => (
           <li key={plan[2]}>
-            {/* // TODO: this would be cool to be a slide not a link */}
-            <Link to={`/areas/${plan[1]}`}>
+            {/* // TODO: this would be cool to be a slide animation not a link */}
+            <Link to={`/areas/${plan[1]}`} className="button">
               {plan[0]} - {plan[3]}
             </Link>
           </li>

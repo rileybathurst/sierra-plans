@@ -4,6 +4,17 @@ import { jsPDF } from "jspdf";
 import { Canvg } from 'canvg';
 import Markdown from "./markdown";
 
+function Jobber({ jobber }) {
+  if (!jobber) {
+    return (
+      <span className="error">Missing Jobber</span>
+    );
+  }
+  return (
+    <>{jobber}</>
+  );
+}
+
 // TODO: Rename
 class Welcome extends React.Component {
 
@@ -69,7 +80,6 @@ class Welcome extends React.Component {
         } */
 
     if (this.props?.plan?.notes.data.notes) {
-      // console.log('🦖');
       var splitNote = doc.splitTextToSize(this.props.plan?.notes.data.notes, 7);
       doc.text(splitNote, 0.5, 1.5, { maxWidth: 6 });
     }
@@ -141,20 +151,44 @@ const UpdateBuild = (props = { plan }) => {
         // but this is different as its being adapted
         data={dataState}
       />
+
       <h1>{props.plan.name}</h1>
-      <h2 className="capitalize">{props.plan.address} {props.plan?.areas[0]?.name}&nbsp;{props.plan?.areas[0]?.state}</h2>
-      <p>
-        {/* // TODO: put a fail state in here */}
-        Jobber install {props.plan?.jobber}<br />
-        Jobber takedown {props.plan?.jobbertakedown}
-      </p>
+
+      <address className="capitalize">
+        <span className="kilimanjaro">{props.plan.address}</span><br />
+        {props.plan?.areas[0]?.name}<br />
+        {props.plan?.areas[0]?.state}
+      </address>
+
+      <hr />
+
+      <div className="deck">
+        <p className="plan-detail">
+          <span className="eyebrow">Jobber install</span>
+          <span className="supra"><Jobber jobber={props.plan?.jobber} /></span>
+        </p>
+        <p className="plan-detail">
+          <span className="eyebrow">Jobber takedown</span>
+          <span className="supra"><Jobber jobber={props.plan?.jobbertakedown} /></span>
+        </p>
+      </div>
+
+      <hr />
 
       <Markdown notes={props.plan?.notes.data.notes} />
 
       <img src={dataState} alt="the svg but its an image" className="measure" />
 
-      <h4>Created at {props.plan.createdAt}</h4>
-      <h4>Updated at {props.plan.createdAt}</h4>
+      <div className="deck">
+        <p className="plan-detail">
+          <span className="eyebrow">Created at</span>
+          <span className="supra">{props.plan.createdAt}</span>
+        </p>
+        <p className="plan-detail">
+          <span className="eyebrow">Updated at</span>
+          <span className="supra"> {props.plan.createdAt}</span>
+        </p>
+      </div>
 
       <hr />
 

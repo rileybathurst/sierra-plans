@@ -29,7 +29,7 @@ function Plans(props) {
       );
     }
   } else {
-    console.log("🏝️")
+    // console.log("🏝️")
     return null;
   }
 }
@@ -47,7 +47,7 @@ function Stack(props: {
   return (
     <Link
       to={`/plan/${props.plan.slug}`}
-      className="stack"
+      className="card card__plan"
     // ? why is this not a card?
     >
       <section className="name">

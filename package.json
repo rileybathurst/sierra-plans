@@ -17,6 +17,7 @@
     "clean start": "gatsby clean && gatsby develop"
   },
   "dependencies": {
+    "@fontsource-variable/josefin-sans": "^5.0.19",
     "canvg": "^4.0.1",
     "gatsby": "^5.13.3",
     "gatsby-plugin-image": "^3.13.1",

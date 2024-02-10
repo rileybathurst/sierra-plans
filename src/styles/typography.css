@@ -21,9 +21,28 @@ h1 {
   font-family: "josefin-sans", sans-serif;
 }
 
+.kilimanjaro {
+  font-size: var(--kilimanjaro);
+}
+
 p {
   margin-block-start: 0;
   margin-block-end: 1.5rem;
+}
+
+address {
+  font-style: normal;
+}
+
+
+hr {
+  border: none;
+  border-top: 1px solid hsl(var(--honey), 100%, 50%);
+  margin-block: 1.5rem; /* 20px */
+
+  @media (prefers-color-scheme: dark) {
+    border-color: hsl(var(--denim), 37%, 37%);
+  }
 }
 
 /*------------------------------------*/
@@ -31,3 +50,19 @@ p {
 .capitalize {
   text-transform: capitalize;
 }
+
+.plan-detail {
+  display: flex;
+  flex-direction: column;
+  margin-block-end: 0;
+
+  .eyebrow {
+    font-size: var(--vinson);
+    color: var(--industrial-revolution);
+  }
+
+  .supra {
+    font-size: var(--denali);
+  }
+}
+

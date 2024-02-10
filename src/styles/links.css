@@ -16,19 +16,65 @@ a:where(:hover, :focus) {
 /* #BUTTONS */
 /*------------------------------------*/
 
+
 button,
 .button {
-  background-color: hsl(var(--honey), 100%, 25%);
+  background-color: hsl(var(--honey), 100%, 75%);
+  border: 1px solid hsl(var(--honey), 100%, 63%);
+  width: max-content;
+  padding-block-start: 0.75rem;
+  padding-block-end: 0.5rem;
+  padding-inline: 1rem;
+  box-shadow: var(--mesosphere);
+  transition: var(--moment);
+  margin-inline-start: 1rem;
+  margin-block-end: 1.5rem;
+  border-radius: var(--border-radius);
   color: hsl(var(--honey), 100%, 25%);
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: var(--cheetah);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: hsl(var(--denim), 25%, 12%);
+    border-color: hsl(var(--denim), 12%, 25%);
+    color: hsl(var(--denim), 25%, 63%);
+  }
+
+  a {
+    color: hsl(
+      var(--honey),
+      100%,
+      25%
+    ) !important; /* ! fix this but keep a11y color contrast */
+  }
 }
 
-.button {
-  text-decoration: none;
+/* TODO active and focus */
+button:hover,
+.button:hover {
+  color: hsl(var(--honey), 100%, 2.5%);
+  box-shadow: var(--stratosphere);
+  background-color: hsl(var(--honey), 87%, 63%);
+  border-color: hsl(var(--honey), 87%, 50%);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: hsl(var(--denim), 25%, 37%);
+    border-color: hsl(var(--denim), 12%, 50%);
+    color: hsl(var(--denim), 25%, 97.5%);
+  }
+}
+
+/* TODO active and focus */
+button:focus,
+.button:focus {
+  color: hsl(var(--honey), 100%, 2.5%);
+  box-shadow: var(--stratosphere);
+  background-color: hsl(var(--honey), 87%, 63%);
+  border-color: hsl(var(--honey), 87%, 50%);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: hsl(var(--denim), 25%, 37%);
+    border-color: hsl(var(--denim), 12%, 50%);
+    color: hsl(var(--denim), 25%, 97.5%);
+  }
 }
 
 /*------------------*/
@@ -76,16 +122,6 @@ ul li a:where(:hover, :focus) {
 
 .areas-list {
   a {
-    background-color: white;
-    border: 1px solid hsl(var(--honey), 50%, 50%);
-    text-decoration: none;
-    padding: 0.75rem;
-    box-shadow: var(--penumbra);
-    border-radius: 0.25rem;
-  }
-
-  a:where(:hover, :focus) {
-    background-color: white;
-    box-shadow: var(--antumbra);
+    margin: 0; /* controlled by display */
   }
 }

@@ -15,12 +15,14 @@ function Header() {
 
       <nav>
         <ul>
-          <li key="area"><Link to="/area">Area</Link></li>
-          <li key="takedownday"><Link to="/takedownday">Takedown Day</Link></li>
-          <li key="guides"><Link to="/guides">Guides</Link></li>
-          <li key="search"><Link to="/search8">Search</Link></li>
+          <li key="area"><Link to="/area" className="button">Area</Link></li>
+          <li key="takedownday"><Link to="/takedownday" className="button">Takedown Day</Link></li>
+          <li key="guides"><Link to="/guides" className="button">Guides</Link></li>
+          <li key="search"><Link to="/search8" className="button">Search</Link></li>
         </ul>
       </nav>
+
+      <hr />
     </header>
   );
 }
