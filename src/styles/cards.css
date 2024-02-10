@@ -1,5 +1,5 @@
 /*------------------*/
-//  #CARD
+/* CARD */
 /*------------------*/
 
 .deck {
@@ -8,9 +8,8 @@
 
   .card {
     border: 1px solid hsl(var(--honey), 50%, 50%);
-    border: 1px solid red; // ! testing
     border-radius: 0.5rem;
-    // TODO: box-shadow: 0 0 0.5rem 0.5rem hsl(var(--honey), 100%, 99%);
+    /* TODO: box-shadow: 0 0 0.5rem 0.5rem hsl(var(--honey), 100%, 99%); */
     padding: 1rem;
     margin-block-end: var(--baseline);
 
@@ -33,23 +32,11 @@
   }
 }
 
-.card__other {
-  border-color: blue !important; // ! testing
-
-  h2 {
-    color: hotpink; // ! testing
-  }
-
-  h3 {
-    color: aquamarine; // ! testing
-  }
-}
-
 /*------------------*/
-//  #STACK
+/* STACK */
 /*------------------*/
 
-// ! this is going to want a container query
+/* ! this is going to want a container query */
 .stack {
   background-color: hsl(var(--honey), 100%, 97.5%);
   display: grid;
@@ -60,11 +47,11 @@
   row-gap: 1.5rem;
   box-shadow: var(--penumbra);
 
-  text-decoration: none; // * clears links text
+  text-decoration: none; /* * clears links text */
 
   > * {
     display: flex;
-    // controls the supra
+    /* controls the supra */
     flex-direction: column-reverse;
   }
 
@@ -106,7 +93,7 @@
 
   h3,
   h4 {
-    font-weight: 700; // TODO: not working
-    font-weight: bold; // TODO: not working
+    font-weight: 700; /* TODO: not working */
+    font-weight: bold; /* TODO: not working */
   }
 }

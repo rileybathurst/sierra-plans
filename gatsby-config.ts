@@ -1,17 +1,13 @@
-import type { GatsbyConfig } from "gatsby"
+import type { GatsbyConfig } from "gatsby";
 
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [
-    'plan',
-    'area',
-    'takedownday'
-  ],
+  collectionTypes: ["plan", "area", "takedownday"],
   singleTypes: [],
 };
 
@@ -25,17 +21,26 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-  {
-    resolve: `gatsby-source-strapi`,
-    options: strapiConfig,
-  },
-  `gatsby-plugin-sharp`,
-  `gatsby-transformer-sharp`,
-  `gatsby-plugin-sass`,
-  `gatsby-plugin-image`,
-  `gatsby-plugin-sharp`,
-  `gatsby-transformer-sharp`,
-],
-}
+    {
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require(`postcss-import`),
+          require("autoprefixer"),
+          require("postcss-nested"),
+        ],
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+  ],
+};
 
-export default config
+export default config;

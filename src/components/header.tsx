@@ -6,7 +6,7 @@ import Logo from "../images/logo";
 function Header() {
   return (
     <header>
-      <Link to="/">
+      <Link to="/" className="site-logo">
         <Logo />
       </Link>
       <h1>

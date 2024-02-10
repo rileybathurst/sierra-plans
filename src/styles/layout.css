@@ -1,9 +1,6 @@
-body {
-  background-color: hsl(var(--honey), 100%, 97.5%);
-  font-size: 16px;
-  font-family: sans-serif;
-  line-height: 1.5;
-}
+/*------------------------------------*/
+/* #LAYOUT */
+/*------------------------------------*/
 
 header {
   max-width: 40rem;
@@ -25,17 +22,14 @@ footer {
 }
 
 main {
-  background-color: hsl(var(--honey), 100%, 95%);
-  box-shadow: 0 0 0 100vmax hsl(var(--honey), 100%, 95%);
-  clip-path: inset(0 -100vmax);
-  max-width: var(--measure);
+  max-width: var(--stork);
   margin-inline: auto;
   padding: 1rem;
 }
 
 canvas {
   display: none;
-  // background: peachpuff;
+  /* background: peachpuff; */
 }
 
 img {
@@ -43,6 +37,8 @@ img {
   border-radius: 0.25rem;
   box-shadow: var(--penumbra);
 }
+
+/*------------------------------------*/
 
 .measure {
   max-width: 40rem;
@@ -61,9 +57,11 @@ img {
   }
 }
 
+/*------------------------------------*/
+
 .plan__logo {
   max-width: 10rem;
-  // margin-inline: auto;
+  /* margin-inline: auto; */
   mix-blend-mode: multiply;
 }
 
@@ -75,19 +73,12 @@ img {
 
 .index-main {
   position: relative;
+
   > h3 {
-    background-color: hsl(var(--honey), 100%, 95%);
-    box-shadow: 0 0 0 100vmax hsl(var(--honey), 100%, 95%);
-    clip-path: inset(0 -100vmax);
     position: sticky;
     top: 0;
-    z-index: 9; // needs to get over the cards still
+    z-index: 9; /* needs to get over the cards still */
     padding-block: 0.5rem;
     border-block-end: 1px solid hsl(var(--honey), 100%, 25%);
   }
-}
-
-// ! Test
-#test-show {
-  display: block;
 }
