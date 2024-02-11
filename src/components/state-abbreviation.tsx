@@ -8,6 +8,8 @@ function StateAbbreviation(state: { state: string; }) {
     return (<>CA</>);
   } else if (state.state == "nevada") {
     return (<>NV</>);
+  } else {
+    return (<>Unknown</>);
   }
 }
 

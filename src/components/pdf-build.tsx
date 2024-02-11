@@ -33,10 +33,15 @@ class Welcome extends React.Component {
 
 
     doc.setFontSize(12);
-    // this is hard coded to the first area which I dont think will be a problem
-    // TODO: area need a better fallback than undefined
 
-    const state = this.props.plan?.areas[0]?.state === 'california' ? 'CA' : 'NV';
+    let state;
+    if (this.props.plan?.areas[0]?.state === 'california') {
+      state = 'CA';
+    } else if (this.props.plan?.areas[0]?.state === 'nevada') {
+      state = 'NV';
+    } else {
+      state = 'undefined';
+    }
 
     let add = `${this.props.plan.address}, ${this.props.plan?.areas[0]?.name}, ${state}`;
     doc.text(add, 0.5, 1);
