@@ -4,10 +4,6 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 // I started messing with a whole pulling a couple of lists but it was never clean and nice so just leave it for now
 function AnyPlans(props) {
 
-  // console.log(props.plans);
-  // const result = props.plans.filter(plan => plan.length > 0);
-  // console.log(result);
-
   if (props.plans.length > 0) {
     return (
       <Link to={props.area.slug}>
@@ -15,19 +11,19 @@ function AnyPlans(props) {
         &nbsp;- {props.plans.length} Plans
       </Link>
     )
-  } else {
-    return (
-      <span className="no-plans">
-        {props.area.name}
-      </span>
-    );
   }
+
+  return (
+    <span className="no-plans">
+      {props.area.name}
+    </span>
+  );
 }
 
 function OnlyPlans(props) {
 
-  let hasPlans = [];
-  let noPlans = new Set();
+  const hasPlans = [];
+  const noPlans = new Set();
 
   props.plans.map((plan: any) => {
     // console.log(plan.plans.length);

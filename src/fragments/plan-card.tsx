@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 
 export const query = graphql`
-  fragment homeCard on STRAPI_PLAN {
+  fragment planCard on STRAPI_PLAN {
     id
     address
     slug
