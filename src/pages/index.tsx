@@ -3,7 +3,6 @@ import { Link, type HeadFC } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 
 import Header from "../components/header";
-import AreaList from "../components/area-list";
 
 type cardTypes = {
   id: string,

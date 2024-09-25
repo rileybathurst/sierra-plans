@@ -4,7 +4,7 @@ import { jsPDF } from "jspdf";
 import { Canvg } from 'canvg';
 import Markdown from "./markdown";
 
-function Jobber({ jobber }) {
+function Jobber({ jobber }: { jobber: string }) {
   if (!jobber) {
     return (
       <span className="error">Missing Jobber</span>
@@ -28,13 +28,12 @@ class Welcome extends React.Component {
 
     doc.setLineWidth(0.01);
 
-    let name = this.props.plan.name;
+    const name = this.props.plan.name;
     doc.text(name, 0.5, 0.75);
-
 
     doc.setFontSize(12);
 
-    let state;
+    let state: string;
     if (this.props.plan?.areas[0]?.state === 'california') {
       state = 'CA';
     } else if (this.props.plan?.areas[0]?.state === 'nevada') {
@@ -43,7 +42,7 @@ class Welcome extends React.Component {
       state = 'undefined';
     }
 
-    let add = `${this.props.plan.address}, ${this.props.plan?.areas[0]?.name}, ${state}`;
+    const add = `${this.props.plan.address}, ${this.props.plan?.areas[0]?.name ? this.props.plan?.areas[0]?.name : ''}, ${this.props.plan?.areas[0]?.state ? state : ''}. ${this.props.plan.zip ? this.props.plan.zip : ''}`;
     doc.text(add, 0.5, 1);
 
     doc.setFontSize(9);
@@ -51,26 +50,26 @@ class Welcome extends React.Component {
     if (this.props.plan?.jobber) {
       doc.rect(6.75, 0.5, 1.25, 1.25);
       doc.text('Jobber', 6.85, 0.75);
-      var j = `${this.props.plan?.jobber}`;
+      const j = `${this.props.plan?.jobber}`;
       doc.text(j, 6.85, 1);
       doc.text('Jobber Takedown', 6.85, 1.25);
-      var jt = `${this.props.plan?.jobbertakedown}`;
+      const jt = `${this.props.plan?.jobbertakedown}`;
       doc.text(jt, 6.85, 1.5);
     }
 
-    var takeDate = '';
+    const takeDate = '';
     if (this.props.plan?.takedownday?.date) {
-      var takeDate = `-${this.props.plan?.takedownday?.date}`;
+      const takeDate = `-${this.props.plan?.takedownday?.date}`;
     }
 
-    var takeCrew = '';
+    const takeCrew = '';
     if (this.props.plan?.takedownday?.crew) {
-      var takeCrew = `-${this.props.plan?.takedownday?.crew}`;
+      const takeCrew = `-${this.props.plan?.takedownday?.crew}`;
     }
 
-    var takeOrder = '';
+    const takeOrder = '';
     if (this.props.plan?.takedownFlexOrder) {
-      var takeOrder = `-${this.props.plan?.takedownFlexOrder}`;
+      const takeOrder = `-${this.props.plan?.takedownFlexOrder}`;
     }
 
     // TODO: name but with regex to remove spaces and special characters
@@ -85,14 +84,14 @@ class Welcome extends React.Component {
         } */
 
     if (this.props?.plan?.notes.data.notes) {
-      var splitNote = doc.splitTextToSize(this.props.plan?.notes.data.notes, 7);
+      const splitNote = doc.splitTextToSize(this.props.plan?.notes.data.notes, 7);
       doc.text(splitNote, 0.5, 1.5, { maxWidth: 6 });
     }
 
     doc.addImage(this.props.data, 'png', 0.5, 2, 7.5, 8);
 
     if (this.props.plan.createdAt !== this.props.plan.updatedAt) {
-      let dates = `Created: ${this.props.plan.createdAt} Updated: ${this.props.plan.updatedAt}`;
+      const dates = `Created: ${this.props.plan.createdAt} Updated: ${this.props.plan.updatedAt}`;
       doc.text(dates, 0.5, 9.5);
     } else {
       doc.text(`Created: ${this.props.plan.updatedAt}`, 0.5, 9.5);
@@ -100,7 +99,7 @@ class Welcome extends React.Component {
 
     doc.line(0.5, 9.6, 8, 9.6);
 
-    let logo = new Image();
+    const logo = new Image();
     logo.src = "https://sierralighting.s3.us-west-1.amazonaws.com/sierra_lighting-full_logo-black-fs8.png";
     doc.addImage(logo, 'png', 0.5, 9.7, 1, 0.51);
 
@@ -111,9 +110,9 @@ class Welcome extends React.Component {
     // takedown date
     // takedown crew
     // takedown order
-    let filename = `${this.props.plan?.jobber}-${this.props.plan?.name}-${this.props.plan?.slug}`;
+    const filename = `${this.props.plan?.jobber}-${this.props.plan?.name}-${this.props.plan?.slug}`;
 
-    doc.save(filename); // ! turn off for developing
+    doc.save(filename); // * turn off for developing
   }
 
   render() {
@@ -182,7 +181,7 @@ const UpdateBuild = (props = { plan }) => {
 
       <Markdown notes={props.plan?.notes.data.notes} />
 
-      <img src={dataState} alt="the svg but its an image" className="measure" />
+      <img src={dataState} alt="the svg as an img" className="measure" />
 
       <div className="deck">
         <p className="plan-detail">
