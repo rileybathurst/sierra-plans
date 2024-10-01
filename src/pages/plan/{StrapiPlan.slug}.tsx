@@ -43,8 +43,40 @@ export const query = graphql`
   }
 `
 
-// ? I wondering if adding types here would help diagnose if this is the problem
-const PlanPage = ({ data }) => {
+type PlanPageTyes = {
+  data: {
+    strapiPlan: {
+      id: string,
+      name: string,
+      address: string,
+      zip: string,
+      areas: {
+        name: string,
+        state: string
+      },
+      slug: string,
+      svg: string,
+      notes: {
+        data: {
+          notes: string
+        }
+      },
+      jobber: string,
+      jobbertakedown: string,
+      teams: {
+        name: string
+      },
+      createdAt: string,
+      updatedAt: string,
+      takedownFlexOrder: string,
+      takedownday: {
+        date: string,
+        crew: string
+      }
+    }
+  }
+}
+const PlanPage = ({ data }: PlanPageTyes) => {
   const plan = data.strapiPlan;
   return (
     <>

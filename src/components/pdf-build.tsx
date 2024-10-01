@@ -110,7 +110,7 @@ class Welcome extends React.Component {
     // takedown date
     // takedown crew
     // takedown order
-    const filename = `${this.props.plan?.jobber}-${this.props.plan?.name}-${this.props.plan?.slug}`;
+    const filename = `${this.props.plan?.jobber}-${this.props.plan?.jobbertakedown}-${this.props.plan?.name}-${this.props.plan?.slug}`;
 
     doc.save(filename); // * turn off for developing
   }
