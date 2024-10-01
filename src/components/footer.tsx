@@ -24,7 +24,7 @@ function Slug() {
         <input type="text" id="slug" name="slug" onChange={slugger} />
 
         <Link
-          to={`/plan/${slug}`}
+          to={`/p/${slug}`}
           className="button"
         >plan/{slug}</Link>
       </form>

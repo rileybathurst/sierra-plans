@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import StateAbbreviation from "./state-abbreviation";
+// import StateAbbreviation from "./state-abbreviation";
 
 function Places(props) {
   // TODO: 
@@ -21,7 +21,7 @@ function Takedownday(props: {
     );
   }
 
-  else return null;
+  return null;
 }
 
 function SearchCard(plan: {
@@ -53,7 +53,7 @@ function SearchCard(plan: {
       {plan.property1}
 
       <h2>
-        <Link to={`/plan/${plan.slug}`}>{plan.name}</Link>
+        <Link to={`/p/${plan.slug}`}>{plan.name}</Link>
       </h2>
 
       <address>

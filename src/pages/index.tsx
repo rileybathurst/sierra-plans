@@ -15,7 +15,7 @@ type cardTypes = {
 function Card({ slug, name, address, jobber, jobbertakedown }: cardTypes): JSX.Element {
   return (
     <Link
-      to={`/plan/${slug}`}
+      to={`/p/${slug}`}
       className="card card__plan"
     // ? why is this not a card?
     >

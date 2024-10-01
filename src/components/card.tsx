@@ -17,7 +17,7 @@ function Takedownday(props: {
     );
   }
 
-  else return null;
+  return null;
 }
 
 function Card(plan: {
@@ -41,7 +41,7 @@ function Card(plan: {
   return (
     <li key={plan.key} className="card">
       <h2>
-        <Link to={`/plan/${plan.slug}`}>
+        <Link to={`/p/${plan.slug}`}>
           {plan.name}
 
           {/* // ! this fixes the search and breaks the other things */}

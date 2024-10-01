@@ -17,4 +17,4 @@ I cant build this online as it has private info on it.
 ## Issues
 
 - working with a lot of pages without a build the cache gets lost, a lot of the time just restart the server of clean restart
-- occassionaly something like this wont be on the home page or searchable just grab it from the slug http://localhost:8000/plan/123-midas-ct/
+- occassionaly something like this wont be on the home page or searchable just grab it from the slug http://localhost:8000/p/123-midas-ct/
