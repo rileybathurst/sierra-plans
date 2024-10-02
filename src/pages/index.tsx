@@ -10,9 +10,11 @@ type cardTypes = {
   name: string,
   address: string,
   jobber: string,
-  jobbertakedown: string
+  jobbertakedown: string,
+  timerHours: number,
+  timerFallback: string
 }
-function Card({ slug, name, address, jobber, jobbertakedown }: cardTypes): JSX.Element {
+function Card({ slug, name, address, jobber, jobbertakedown, timerHours, timerFallback }: cardTypes): JSX.Element {
   return (
     <Link
       to={`/p/${slug}`}

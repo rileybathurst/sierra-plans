@@ -27,6 +27,9 @@ export const query = graphql`
 
       jobber
       jobbertakedown
+
+      timerHours
+      timerFallback
       
       teams {
         name
@@ -63,6 +66,8 @@ type PlanPageTyes = {
       },
       jobber: string,
       jobbertakedown: string,
+      timerHours: number,
+      timerFallback: string,
       teams: {
         name: string
       },

@@ -57,6 +57,12 @@ class Welcome extends React.Component {
       doc.text(jt, 6.85, 1.5);
     }
 
+    this.props.plan?.timerHours ??
+      doc.text(`Timer: ${this.props.plan?.jobberHours} Hours`, 0.5, 1.25)
+
+    this.props.plan?.timerFallback ??
+      doc.text(`Timer: ${this.props.plan?.timerFallback}`, 0.5, 1.25)
+
     const takeDate = '';
     if (this.props.plan?.takedownday?.date) {
       const takeDate = `-${this.props.plan?.takedownday?.date}`;
