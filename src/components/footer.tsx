@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-
 import Logo from "../images/logo";
-
-// import Search7 from "./search7";
-
 
 function Slug() {
   // TODO: make this pretty
@@ -26,7 +22,7 @@ function Slug() {
         <Link
           to={`/p/${slug}`}
           className="button"
-        >plan/{slug}</Link>
+        >p/{slug}</Link>
       </form>
     </div>
   );

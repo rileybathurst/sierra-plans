@@ -1,8 +1,9 @@
+/* TODO: updates these to the new style */
 :root {
   /*------------------------------------*/
   /* #COLOR */
   /*------------------------------------*/
-  
+
   --honey: 35;
 
   --error: red;
@@ -50,7 +51,7 @@
 
   --baseline: 1.5rem;
 
-    /*------------------*/
+  /*------------------*/
   /*  #WIDTHS */
   /* https://en.wikipedia.org/wiki/Largest_living_flying_birds_by_wingspan */
   /*------------------*/
@@ -64,7 +65,7 @@
   /*------------------------------------*/
   /* #TYPOGRAPHY */
   /*------------------------------------*/
-  
+
   --everest: 3rem; /* 29,035ft Asia */
   --everest-lh: 3.75rem; /* 29,035ft Asia */
 
@@ -74,7 +75,6 @@
   --elbrus: 1.25rem; /* 18,510ft Europe / Russia */
   --vinson: 1rem; /* 16,050ft Antartica */
   --kosciuszko: 0.75rem; /* 7,310ft Australia */
-
 
   --heavyweight: 900;
   --bridgerweight: 800;
@@ -93,5 +93,4 @@
   --cheetah: 0.2s ease-in-out;
   /* --pronghorn: 0.2s ease-in-out; */
   /* --Springbok: 0.2s ease-in-out; */
-
 }

@@ -9,7 +9,7 @@ header {
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     list-style: none;
     padding-inline-start: 0;
   }

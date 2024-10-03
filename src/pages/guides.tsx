@@ -2,6 +2,8 @@ import * as React from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
+// TODO: move this to strapi
+
 const GuidesPage = () => {
   return (
     <>

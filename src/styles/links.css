@@ -9,13 +9,12 @@ a {
 }
 
 a:where(:hover, :focus) {
-  color: hsl(var(--honey), 100%, 12.5%);
+  color: hsl(35, 100%, 12.5%);
 }
 
 /*------------------------------------*/
 /* #BUTTONS */
 /*------------------------------------*/
-
 
 button,
 .button {
@@ -91,7 +90,7 @@ header {
   }
 
   a:hover {
-    background-color: hsl(var(--honey), 100%, 2.5%);
+    background-color: hsl(35, 100%, 75%);
   }
 
   a:focus {

@@ -1,3 +1,5 @@
+// TODO: IO dont use this maybe one day Ill fix it
+// but for now its a mess
 // trying with ... spread or rest Im not 100% sure on this
 
 import React, { useState } from "react"
@@ -8,9 +10,6 @@ import * as JsSearch from 'js-search';
 // https://github.com/bvaughn/js-search
 // import { JsSearch } from "js-search"; // this doesnt work
 
-import SearchCard from "./search-card";
-import OtherCard from "./other-card";
-import Card from "./card";
 
 function Type(props) {
   console.log(props);
