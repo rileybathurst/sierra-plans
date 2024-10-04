@@ -14,7 +14,7 @@ export type PlanTypes = {
     };
   };
   jobber: number;
-  jobberTakedown: number;
+  jobbertakedown: number;
   timerHours: number;
   timerFallback: string;
   createdAt: string;

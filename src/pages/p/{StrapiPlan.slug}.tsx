@@ -103,7 +103,7 @@ const PlanPage = ({ data }: { data: { strapiPlan: PlanTypes } }) => {
           </p>
           <p className="plan-detail">
             <span className="eyebrow">Jobber takedown</span>
-            <span className="supra">{data.strapiPlan.jobberTakedown ? data.strapiPlan.jobberTakedown : '<span className="error">Missing Jobber Takedown</span>'}</span>
+            <span className="supra">{data.strapiPlan.jobbertakedown ? data.strapiPlan.jobbertakedown : '<span className="error">Missing Jobber Takedown</span>'}</span>
           </p>
         </div>
 
