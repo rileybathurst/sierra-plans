@@ -16,8 +16,6 @@ const Pdfbuild = ({
   timerFallback,
   createdAt,
   updatedAt,
-  takedownFlexOrder,
-  takedownday,
 }: PlanTypes) => {
   const doc = new jsPDF("p", "in", "letter", true);
 
@@ -63,20 +61,22 @@ const Pdfbuild = ({
     doc.text(splitNote, 0.5, 1.5, { maxWidth: 6 });
   }
 
-  // base64 encode the canvas image
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
-  const canvas = document.createElement("canvas");
-  canvas.width = 2550;
-  canvas.height = 2550;
+  if (svg) {
+    // base64 encode the canvas image
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
+    const canvas = document.createElement("canvas");
+    canvas.width = 2550;
+    canvas.height = 2550;
 
-  const ctx = canvas.getContext("2d");
-  if (ctx) {
-    const v = Canvg.fromString(ctx, svg);
+    const ctx = canvas.getContext("2d");
+    if (ctx) {
+      const v = Canvg.fromString(ctx, svg);
 
-    v.start();
-    const dataURL = canvas.toDataURL() || "";
+      v.start();
+      const dataURL = canvas.toDataURL() || "";
 
-    doc.addImage(dataURL, "png", 0.5, 2, 7.5, 8);
+      doc.addImage(dataURL, "png", 0.5, 2, 7.5, 8);
+    }
   }
 
   let mostRecent = "";

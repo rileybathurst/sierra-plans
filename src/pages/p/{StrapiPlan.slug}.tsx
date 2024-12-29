@@ -57,23 +57,28 @@ const PlanPage = ({ data }: { data: { strapiPlan: PlanTypes } }) => {
   // do not name this it breaks the build
   const canvas = useRef<HTMLCanvasElement>(null);
 
-  useEffect(() => {
+  if (data.strapiPlan.svg) {
 
-    // grab the canvas and edit it with the useeffect to only do it once its drawn
-    const ctx = canvas.current?.getContext("2d");
-    if (!ctx) return;
-    const v = Canvg.fromString(ctx, data.strapiPlan.svg);
-    v.start();
+    useEffect(() => {
 
-    // base64 encode the canvas image
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
-    const dataURL = canvas.current?.toDataURL() || '';
-    setDataState(dataURL);
-  });
+      // grab the canvas and edit it with the useeffect to only do it once its drawn
+      const ctx = canvas.current?.getContext("2d");
+      if (!ctx) return;
+      const v = Canvg.fromString(ctx, data.strapiPlan.svg);
+      v.start();
+
+      // base64 encode the canvas image
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
+      const dataURL = canvas.current?.toDataURL() || '';
+      setDataState(dataURL);
+    });
+  }
 
   useEffect(() => {
     PDFBuild(data.strapiPlan);
   }, [data.strapiPlan]);
+
+
 
   return (
     <>
